@@ -1,0 +1,11 @@
+food_id,normalized_food_ko,normalized_food_en,food_category,default_processing_level,default_cooking_method,notes
+F0001,라면,instant ramen,noodles,ultra_processed,boiled,일반 봉지라면 또는 컵라면 기준
+F0002,김밥,gimbap,mixed_meal,processed,mixed,재료 변동이 큰 혼합 음식
+F0003,아이스 아메리카노,iced americano,beverage,minimally_processed,beverage,설탕 미첨가 기준
+F0004,라떼,latte,beverage,processed,beverage,우유가 포함된 커피 음료 기준
+F0005,김치찌개,kimchi stew,stew,processed,boiled,김치와 국물 기반 찌개
+F0006,치킨,fried chicken,meat,processed,fried,일반 프라이드 치킨 기준
+F0007,콜라,cola,beverage,ultra_processed,beverage,일반 설탕 함유 탄산음료 기준
+F0008,떡볶이,tteokbokki,mixed_meal,processed,boiled,떡 고추장 양념 기반 분식
+F0009,아이스크림,ice cream,dessert,ultra_processed,frozen,유제품과 당류 포함 디저트 기준
+F0010,쌀밥,white rice,rice,minimally_processed,boiled,흰쌀밥 기준

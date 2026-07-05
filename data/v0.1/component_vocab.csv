@@ -1,0 +1,38 @@
+component_id,component_name_en,component_name_ko,category,parent_id,description
+C001,sugar,당류,nutrient,,설탕이나 단맛 성분이 두드러지는 음식
+C002,refined_carbohydrate,정제탄수화물,nutrient,,흰쌀밥 밀가루면 빵 등 정제 탄수화물 중심 음식
+C003,whole_grain,통곡물,nutrient,,현미 귀리 통밀 등 정제되지 않은 곡물 기반 음식
+C004,fiber_rich,식이섬유 풍부,nutrient,,채소 과일 콩류 통곡물 등 식이섬유가 많은 음식
+C005,high_sodium,고나트륨,nutrient,,나트륨이 높을 가능성이 큰 음식
+C006,high_fat,고지방,nutrient,,지방 함량이 높을 가능성이 큰 음식
+C007,protein_rich,고단백,nutrient,,단백질 함량이 높은 음식
+C008,caffeine,카페인,bioactive,,커피 에너지드링크 일부 차 콜라 등
+C009,alcohol,알코올,bioactive,,맥주 와인 소주 등 알코올 포함 음식 또는 음료
+C010,carbonated,탄산,sensory,,탄산음료 탄산수 등
+C011,spicy,매운맛,sensory,,고추 고추장 매운 양념 기반 음식
+C012,fried,튀김,cooking_method,,기름에 튀긴 음식
+C013,grilled,구이,cooking_method,,구운 음식
+C014,boiled,삶음 또는 끓임,cooking_method,,삶거나 끓인 음식
+C015,soup_or_stew,국물요리,cooking_method,,국 찌개 탕 전골 등 국물 기반 음식
+C016,raw_food,생식,cooking_method,,익히지 않은 음식
+C017,minimally_processed,최소가공,processing,,가공이 적은 음식
+C018,processed,가공식품,processing,,조리 또는 가공된 음식
+C019,ultra_processed,초가공식품,processing,,라면 과자 탄산음료 인스턴트 식품 등
+C020,packaged_food,포장식품,processing,,포장되어 판매되는 가공식품
+C021,fermented,발효식품,processing,,김치 된장 요거트 등 발효 기반 음식
+C022,dairy,유제품,food_group,,우유 치즈 요거트 등 유제품
+C023,lactose_possible,유당 가능,intolerance_candidate,,유당이 포함될 가능성이 있는 음식
+C024,gluten_possible,글루텐 가능,intolerance_candidate,,밀가루 기반 음식
+C025,fodmap_possible,FODMAP 가능,digestive_candidate,,복부팽만 등 소화 반응 후보가 될 수 있는 성분군
+C026,nut_possible,견과류 가능,allergen_candidate,,견과류가 포함될 가능성이 있는 음식
+C027,seafood_possible,해산물 가능,allergen_candidate,,생선 또는 해산물이 포함될 가능성이 있는 음식
+C028,shellfish_possible,갑각류 가능,allergen_candidate,,새우 게 조개류 등이 포함될 가능성이 있는 음식
+C029,egg_possible,계란 가능,allergen_candidate,,계란이 포함될 가능성이 있는 음식
+C030,soy_possible,대두 가능,allergen_candidate,,콩 두부 된장 간장 등 대두 기반 음식
+C031,rice_based,쌀 기반,food_base,,쌀밥 떡 김밥 등 쌀 기반 음식
+C032,noodle_based,면 기반,food_base,,라면 우동 짜장면 파스타 등 면 기반 음식
+C033,bread_based,빵 기반,food_base,,빵 샌드위치 햄버거 등 빵 기반 음식
+C034,meat_based,육류 기반,food_base,,고기 중심 음식
+C035,vegetable_based,채소 기반,food_base,,채소 중심 음식
+C036,fruit_based,과일 기반,food_base,,과일 중심 음식
+C037,mixed_meal,혼합식,food_structure,,여러 재료가 섞인 한 끼 음식

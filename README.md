@@ -1,17 +1,32 @@
 # FoodMap-Component-KR
 
-## Goal
-한국어 자연어 음식 기록을 FoodMap component token으로 변환하기 위한 데이터셋과 parser 구축.
+FoodMap-Component-KR is a Korean food component dataset for converting natural Korean meal descriptions into structured food component tokens.
 
-## Dataset Files
-- component_vocab.csv: component token 사전
-- food_items.csv: 표준 음식명 목록
-- food_component_annotations.csv: 음식-component annotation
-- food_aliases.csv: 자연어 음식 표현과 표준 음식명 매핑
-- sentence_examples.jsonl: 자연어 문장 예시
+## Goal
+
+The goal of this project is to build a dataset and parser that can transform Korean food logs into structured food components such as:
+
+- refined_carbohydrate
+- high_sodium
+- caffeine
+- dairy
+- gluten_possible
+- ultra_processed
+- spicy
+- fried
+
+This dataset will later be connected with wearable data such as Apple Watch sleep, heart rate, HRV, and activity metrics to study personalized food-body response patterns.
 
 ## Current Version
+
 v0.1
 
-## Research Direction
-향후 Apple Watch 기반 수면, 심박, HRV 데이터와 연결하여 개인별 음식 반응 지도를 생성하는 모델로 확장.
+## Dataset Files
+
+```text
+data/v0.1/
+├── component_vocab.csv
+├── food_items.csv
+├── food_component_annotations.csv
+├── food_aliases.csv
+└── sentence_examples.jsonl

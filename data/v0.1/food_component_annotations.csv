@@ -1,0 +1,38 @@
+food_id,component_id,status,confidence,evidence_type,notes,version
+F0001,C002,confirmed,0.95,common_knowledge,라면은 밀가루 면 기반,v0.1
+F0001,C005,confirmed,0.95,common_knowledge,라면 스프는 나트륨이 높은 편,v0.1
+F0001,C006,possible,0.75,common_knowledge,유탕면 기준 고지방 가능,v0.1
+F0001,C011,possible,0.70,food_variant,매운 라면이 많지만 모든 라면이 매운 것은 아님,v0.1
+F0001,C019,confirmed,0.95,processing,인스턴트 초가공식품,v0.1
+F0001,C024,confirmed,0.90,ingredient,밀가루 면 기준 글루텐 가능,v0.1
+F0001,C032,confirmed,0.95,food_base,면 기반 음식,v0.1
+F0002,C031,confirmed,0.90,ingredient,쌀밥 기반,v0.1
+F0002,C037,confirmed,0.90,food_structure,여러 재료가 섞인 혼합식,v0.1
+F0002,C005,possible,0.65,food_variant,단무지 햄 조미 재료에 따라 나트륨 가능,v0.1
+F0002,C029,possible,0.60,food_variant,김밥 종류에 따라 계란 포함 가능,v0.1
+F0003,C008,confirmed,0.95,ingredient,아메리카노는 카페인 포함,v0.1
+F0004,C008,confirmed,0.90,ingredient,라떼는 커피 기반으로 카페인 포함,v0.1
+F0004,C022,confirmed,0.90,ingredient,일반 라떼는 우유 포함,v0.1
+F0004,C023,possible,0.80,ingredient,우유 사용 시 유당 가능,v0.1
+F0005,C005,possible,0.80,common_knowledge,찌개류는 나트륨이 높을 가능성,v0.1
+F0005,C011,possible,0.75,ingredient,김치 기반으로 매운맛 가능,v0.1
+F0005,C015,confirmed,0.90,cooking_method,국물요리,v0.1
+F0005,C021,confirmed,0.85,ingredient,김치 기반 발효식품 요소,v0.1
+F0006,C012,confirmed,0.95,cooking_method,프라이드 치킨 기준 튀김,v0.1
+F0006,C006,confirmed,0.80,common_knowledge,튀김 음식으로 고지방 가능,v0.1
+F0006,C034,confirmed,0.95,food_base,닭고기 기반 육류 음식,v0.1
+F0007,C001,confirmed,0.95,ingredient,일반 콜라는 당류 포함,v0.1
+F0007,C010,confirmed,0.95,ingredient,탄산음료,v0.1
+F0007,C008,possible,0.60,food_variant,일부 콜라 제품은 카페인 포함,v0.1
+F0007,C019,confirmed,0.90,processing,초가공 음료,v0.1
+F0008,C031,confirmed,0.85,ingredient,떡은 쌀 기반,v0.1
+F0008,C001,possible,0.75,ingredient,양념에 당류 포함 가능,v0.1
+F0008,C005,possible,0.75,ingredient,고추장 양념으로 나트륨 가능,v0.1
+F0008,C011,confirmed,0.85,ingredient,매운 양념 기반,v0.1
+F0008,C037,confirmed,0.85,food_structure,혼합식,v0.1
+F0009,C001,confirmed,0.95,ingredient,아이스크림은 당류 포함,v0.1
+F0009,C022,confirmed,0.90,ingredient,일반 아이스크림은 유제품 기반,v0.1
+F0009,C006,possible,0.75,ingredient,지방 함량 가능,v0.1
+F0009,C019,possible,0.75,processing,제품형 아이스크림 기준 초가공 가능,v0.1
+F0010,C002,confirmed,0.90,ingredient,흰쌀밥은 정제 탄수화물 중심,v0.1
+F0010,C031,confirmed,0.95,food_base,쌀 기반 음식,v0.1
