@@ -33,6 +33,19 @@ def build_food_lookup():
 
     return lookup
 
+def build_component_alias_lookup():
+    component_aliases = load_csv("component_aliases.csv")
+
+    lookup = {}
+
+    for row in component_aliases:
+        lookup[row["alias"]] = {
+            "component_id": row["component_id"],
+            "component_name_en": row["component_name_en"],
+            "confidence": float(row["confidence"]),
+        }
+
+    return lookup
 
 def build_component_lookup():
     components = load_csv("component_vocab.csv")
@@ -64,19 +77,86 @@ def build_component_lookup():
 
     return component_lookup
 
+def merge_final_components(found_foods, explicit_components):
+    merged = {}
+
+    status_rank = {
+        "absent": 0,
+        "unknown": 1,
+        "possible": 2,
+        "confirmed": 3,
+    }
+
+    def add_component(component, status, confidence, source, component_id=None):
+        if component not in merged:
+            merged[component] = {
+                "component_id": component_id,
+                "component": component,
+                "status": status,
+                "confidence": confidence,
+                "sources": [source],
+            }
+            return
+
+        existing = merged[component]
+
+        # status는 confirmed가 possible보다 우선
+        if status_rank.get(status, 0) > status_rank.get(existing["status"], 0):
+            existing["status"] = status
+
+        # confidence는 더 높은 값을 사용
+        existing["confidence"] = max(existing["confidence"], confidence)
+
+        # component_id가 새로 있으면 보존
+        if existing.get("component_id") is None and component_id is not None:
+            existing["component_id"] = component_id
+
+        if source not in existing["sources"]:
+            existing["sources"].append(source)
+
+    # 1. 음식에서 추론된 components
+    for food in found_foods:
+        food_id = food["food_id"]
+
+        for item in food.get("components", []):
+            add_component(
+                component=item["component"],
+                status=item["status"],
+                confidence=item["confidence"],
+                source=f"food:{food_id}",
+            )
+
+    # 2. 문장에 직접 나온 components
+    for item in explicit_components:
+        add_component(
+            component=item["component"],
+            status=item["status"],
+            confidence=item["confidence"],
+            source=item["source"],
+            component_id=item.get("component_id"),
+        )
+
+    return sorted(
+        merged.values(),
+        key=lambda x: (
+            {"confirmed": 0, "possible": 1, "unknown": 2, "absent": 3}.get(x["status"], 9),
+            -x["confidence"],
+            x["component"],
+        )
+    )
 
 def parse_food_log(text):
     food_lookup = build_food_lookup()
     component_lookup = build_component_lookup()
+    component_alias_lookup = build_component_alias_lookup()
 
     found_foods = []
+    explicit_components = []
     occupied_spans = []
 
-    # 긴 alias를 먼저 찾는다.
-    # 예: "카페라떼"를 먼저 잡고, 그 안의 "라떼"는 무시
-    aliases = sorted(food_lookup.items(), key=lambda x: len(x[0]), reverse=True)
+    food_aliases = sorted(food_lookup.items(), key=lambda x: len(x[0]), reverse=True)
 
-    for alias, info in aliases:
+    for alias, info in food_aliases:
         start = 0
 
         while True:
@@ -87,7 +167,6 @@ def parse_food_log(text):
 
             span = (index, index + len(alias))
 
-            # 이미 더 긴 표현이 잡은 구간과 겹치면 skip
             overlaps = any(
                 not (span[1] <= existing[0] or span[0] >= existing[1])
                 for existing in occupied_spans
@@ -109,15 +188,71 @@ def parse_food_log(text):
 
             start = index + len(alias)
 
+    # component aliases는 음식 span과 겹쳐도 일부 허용해야 함
+    # 예: 토마토파스타에서 토마토 + 파스타 둘 다 잡기
+    component_aliases = sorted(
+        component_alias_lookup.items(),
+        key=lambda x: len(x[0]),
+        reverse=True
+    )
+
+    component_spans = []
+
+    for alias, info in component_aliases:
+        start = 0
+
+        while True:
+            index = text.find(alias, start)
+
+            if index == -1:
+                break
+
+            span = (index, index + len(alias))
+
+            overlaps_component = any(
+                not (span[1] <= existing[0] or span[0] >= existing[1])
+                for existing in component_spans
+            )
+
+            if not overlaps_component:
+                explicit_components.append({
+                    "raw_text": alias,
+                    "component_id": info["component_id"],
+                    "component": info["component_name_en"],
+                    "status": "confirmed",
+                    "confidence": info["confidence"],
+                    "source": "explicit_component_alias",
+                    "start": span[0],
+                    "end": span[1],
+                })
+
+                component_spans.append(span)
+
+            start = index + len(alias)
+
     found_foods = sorted(found_foods, key=lambda x: x["start"])
+    explicit_components = sorted(explicit_components, key=lambda x: x["start"])
+
+    final_components = merge_final_components(found_foods, explicit_components)
 
     return {
-        "input": text,
-        "foods": found_foods,
-    }
+    "input": text,
+    "foods": found_foods,
+    "explicit_components": explicit_components,
+    "final_components": final_components,
+}
 
 
 if __name__ == "__main__":
-    text = "어제 밤에 라면이랑 김밥 먹고 아아 마셨어."
-    result = parse_food_log(text)
-    print(json.dumps(result, ensure_ascii=False, indent=2))
+    test_sentences = [
+        "토마토 파스타 먹었어.",
+        "새우버거랑 콜라 마셨어.",
+        "딸기탕후루 먹었어.",
+        "크림파스타랑 샐러드 먹었어.",
+        "아보카도 포케 먹었어.",
+    ]
+
+    for text in test_sentences:
+        result = parse_food_log(text)
+        print(json.dumps(result, ensure_ascii=False, indent=2))
+        print("-" * 50)
