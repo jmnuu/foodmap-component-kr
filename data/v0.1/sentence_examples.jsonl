@@ -1,0 +1,2 @@
+{"id":"S0004","input":"점심에 김찌랑 공기밥 먹고 후식으로 콜라 마심.","food_mentions":[{"raw_text":"김찌","food_id":"F0005","normalized_food":"김치찌개"},{"raw_text":"공기밥","food_id":"F0010","normalized_food":"쌀밥"},{"raw_text":"콜라","food_id":"F0007","normalized_food":"콜라"}],"context":{"meal_time":"lunch"}}
+{"id":"S0005","input":"밤에 불닭이랑 치즈김밥 먹었어.","food_mentions":[{"raw_text":"불닭","food_id":"F0001","normalized_food":"라면"},{"raw_text":"치즈김밥","food_id":"F0002","normalized_food":"김밥"}],"context":{"meal_time":"night"}}
