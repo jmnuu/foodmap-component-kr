@@ -70,18 +70,46 @@ def parse_food_log(text):
     component_lookup = build_component_lookup()
 
     found_foods = []
+    occupied_spans = []
 
-    # 긴 표현을 먼저 찾기 위해 길이 기준 정렬
-    for alias, info in sorted(food_lookup.items(), key=lambda x: len(x[0]), reverse=True):
-        if alias in text:
-            food_id = info["food_id"]
+    # 긴 alias를 먼저 찾는다.
+    # 예: "카페라떼"를 먼저 잡고, 그 안의 "라떼"는 무시
+    aliases = sorted(food_lookup.items(), key=lambda x: len(x[0]), reverse=True)
 
-            found_foods.append({
-                "raw_text": alias,
-                "food_id": food_id,
-                "normalized_food": info["normalized_food_ko"],
-                "components": component_lookup.get(food_id, []),
-            })
+    for alias, info in aliases:
+        start = 0
+
+        while True:
+            index = text.find(alias, start)
+
+            if index == -1:
+                break
+
+            span = (index, index + len(alias))
+
+            # 이미 더 긴 표현이 잡은 구간과 겹치면 skip
+            overlaps = any(
+                not (span[1] <= existing[0] or span[0] >= existing[1])
+                for existing in occupied_spans
+            )
+
+            if not overlaps:
+                food_id = info["food_id"]
+
+                found_foods.append({
+                    "raw_text": alias,
+                    "food_id": food_id,
+                    "normalized_food": info["normalized_food_ko"],
+                    "start": span[0],
+                    "end": span[1],
+                    "components": component_lookup.get(food_id, []),
+                })
+
+                occupied_spans.append(span)
+
+            start = index + len(alias)
+
+    found_foods = sorted(found_foods, key=lambda x: x["start"])
 
     return {
         "input": text,
