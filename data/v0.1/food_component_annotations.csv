@@ -36,3 +36,134 @@ F0009,C006,possible,0.75,ingredient,지방 함량 가능,v0.1
 F0009,C019,possible,0.75,processing,제품형 아이스크림 기준 초가공 가능,v0.1
 F0010,C002,confirmed,0.90,ingredient,흰쌀밥은 정제 탄수화물 중심,v0.1
 F0010,C031,confirmed,0.95,food_base,쌀 기반 음식,v0.1
+F0011,C011,confirmed,0.95,common_knowledge,마라탕은 매운맛 기반,v0.2
+F0011,C015,confirmed,0.90,cooking_method,국물요리 또는 탕류,v0.2
+F0011,C005,possible,0.85,common_knowledge,마라탕 국물은 나트륨이 높을 가능성,v0.2
+F0011,C062,confirmed,0.95,ingredient,마라 향신료 기반,v0.2
+F0011,C063,confirmed,0.90,ingredient,육수 기반 음식,v0.2
+F0011,C037,confirmed,0.90,food_structure,재료 선택형 혼합식,v0.2
+F0011,C035,possible,0.75,food_variant,채소가 포함될 가능성,v0.2
+F0011,C034,possible,0.60,food_variant,고기류가 포함될 가능성,v0.2
+F0012,C033,confirmed,0.95,food_base,햄버거는 빵 기반 음식,v0.2
+F0012,C060,confirmed,0.95,ingredient,햄버거 번 포함,v0.2
+F0012,C024,confirmed,0.90,ingredient,일반 번은 밀 기반으로 글루텐 가능,v0.2
+F0012,C034,possible,0.85,food_variant,일반 햄버거는 고기 패티 가능성,v0.2
+F0012,C042,possible,0.70,food_variant,소고기 패티 가능성,v0.2
+F0012,C044,possible,0.50,food_variant,치킨버거 변형 가능성,v0.2
+F0012,C045,possible,0.40,food_variant,새우버거 변형 가능성,v0.2
+F0012,C039,possible,0.65,food_variant,토마토 포함 가능성,v0.2
+F0012,C048,possible,0.70,food_variant,양상추 포함 가능성,v0.2
+F0012,C059,possible,0.65,food_variant,치즈 포함 가능성,v0.2
+F0012,C006,possible,0.75,common_knowledge,패티 소스 치즈로 고지방 가능성,v0.2
+F0012,C037,confirmed,0.95,food_structure,여러 재료가 섞인 혼합식,v0.2
+F0013,C002,confirmed,0.90,ingredient,피자 도우는 정제 탄수화물 중심,v0.2
+F0013,C038,confirmed,0.90,ingredient,일반 피자 도우는 밀 기반,v0.2
+F0013,C024,confirmed,0.90,ingredient,밀가루 도우로 글루텐 가능,v0.2
+F0013,C059,confirmed,0.90,ingredient,일반 피자는 치즈 포함,v0.2
+F0013,C022,confirmed,0.85,ingredient,치즈 기반 유제품 포함,v0.2
+F0013,C023,possible,0.75,ingredient,치즈로 유당 가능성,v0.2
+F0013,C039,possible,0.70,ingredient,토마토소스 가능성,v0.2
+F0013,C006,possible,0.85,common_knowledge,치즈와 토핑으로 고지방 가능,v0.2
+F0013,C019,possible,0.75,processing,프랜차이즈 피자는 초가공 가능성,v0.2
+F0013,C037,confirmed,0.95,food_structure,도우 소스 토핑 혼합식,v0.2
+F0014,C032,confirmed,0.95,food_base,파스타는 면 기반 음식,v0.2
+F0014,C061,confirmed,0.95,ingredient,파스타면 포함,v0.2
+F0014,C038,confirmed,0.90,ingredient,일반 파스타면은 밀 기반,v0.2
+F0014,C024,confirmed,0.90,ingredient,일반 파스타면은 글루텐 가능,v0.2
+F0014,C002,confirmed,0.85,ingredient,정제 탄수화물 중심 음식,v0.2
+F0014,C041,possible,0.65,ingredient,올리브오일 사용 가능성,v0.2
+F0014,C039,possible,0.50,food_variant,토마토 파스타일 가능성,v0.2
+F0014,C040,possible,0.50,food_variant,크림 파스타일 가능성,v0.2
+F0014,C022,possible,0.50,food_variant,크림 또는 치즈 사용 가능성,v0.2
+F0014,C006,possible,0.60,food_variant,크림 치즈 오일 사용 시 고지방 가능,v0.2
+F0015,C035,confirmed,0.95,food_base,샐러드는 채소 기반 음식,v0.2
+F0015,C048,confirmed,0.80,ingredient,일반 샐러드는 잎채소 가능성 높음,v0.2
+F0015,C039,possible,0.65,food_variant,토마토 포함 가능성,v0.2
+F0015,C050,possible,0.60,food_variant,오이 포함 가능성,v0.2
+F0015,C051,possible,0.60,food_variant,당근 포함 가능성,v0.2
+F0015,C041,possible,0.60,food_variant,올리브오일 드레싱 가능성,v0.2
+F0015,C004,confirmed,0.85,common_knowledge,채소 기반으로 식이섬유 풍부 가능성,v0.2
+F0015,C017,confirmed,0.85,processing,가공이 적은 음식으로 분류,v0.2
+F0015,C037,confirmed,0.90,food_structure,여러 채소와 드레싱 혼합식,v0.2
+F0016,C031,possible,0.75,food_variant,포케는 밥 기반인 경우가 많음,v0.2
+F0016,C064,possible,0.70,ingredient,흰쌀밥 사용 가능성,v0.2
+F0016,C046,possible,0.70,ingredient,연어 참치 등 생선 포함 가능성,v0.2
+F0016,C056,possible,0.60,ingredient,아보카도 포함 가능성,v0.2
+F0016,C050,possible,0.55,ingredient,오이 포함 가능성,v0.2
+F0016,C049,possible,0.50,ingredient,양파 포함 가능성,v0.2
+F0016,C037,confirmed,0.95,food_structure,밥 단백질 채소 소스 혼합식,v0.2
+F0016,C005,possible,0.65,ingredient,간장 기반 소스로 나트륨 가능,v0.2
+F0016,C004,possible,0.70,common_knowledge,채소 포함 시 식이섬유 가능,v0.2
+F0017,C032,confirmed,0.95,food_base,쌀국수는 면 기반 음식,v0.2
+F0017,C047,confirmed,0.95,ingredient,쌀국수면 포함,v0.2
+F0017,C031,confirmed,0.85,ingredient,쌀 기반 면,v0.2
+F0017,C063,confirmed,0.90,ingredient,육수 기반 음식,v0.2
+F0017,C015,confirmed,0.85,cooking_method,국물 면 요리,v0.2
+F0017,C005,possible,0.70,common_knowledge,국물과 소스로 나트륨 가능,v0.2
+F0017,C034,possible,0.60,food_variant,고기 고명 가능성,v0.2
+F0018,C033,confirmed,0.95,food_base,샌드위치는 빵 기반 음식,v0.2
+F0018,C060,confirmed,0.95,ingredient,샌드위치 빵 포함,v0.2
+F0018,C038,confirmed,0.85,ingredient,일반 빵은 밀 기반,v0.2
+F0018,C024,confirmed,0.85,ingredient,일반 빵은 글루텐 가능,v0.2
+F0018,C037,confirmed,0.95,food_structure,빵과 속재료 혼합식,v0.2
+F0018,C048,possible,0.65,ingredient,양상추 포함 가능성,v0.2
+F0018,C039,possible,0.60,ingredient,토마토 포함 가능성,v0.2
+F0018,C059,possible,0.60,ingredient,치즈 포함 가능성,v0.2
+F0018,C034,possible,0.60,ingredient,햄 닭고기 등 육류 가능성,v0.2
+F0018,C018,possible,0.70,processing,가공 재료 포함 가능성,v0.2
+F0019,C022,confirmed,0.95,ingredient,그릭요거트는 유제품,v0.2
+F0019,C023,possible,0.80,ingredient,유당 가능성,v0.2
+F0019,C057,confirmed,0.95,ingredient,요거트 기반 음식,v0.2
+F0019,C021,confirmed,0.85,processing,발효유 기반 음식,v0.2
+F0019,C007,confirmed,0.80,nutrient,그릭요거트는 단백질이 높은 편,v0.2
+F0019,C001,possible,0.60,food_variant,가당 제품 또는 토핑 시 당류 가능,v0.2
+F0020,C001,confirmed,0.95,ingredient,탕후루는 설탕 코팅 포함,v0.2
+F0020,C058,confirmed,0.95,ingredient,시럽 또는 당코팅 포함,v0.2
+F0020,C036,confirmed,0.85,food_base,과일 기반 간식,v0.2
+F0020,C018,confirmed,0.80,processing,과일을 당코팅한 가공 간식,v0.2
+F0020,C019,possible,0.60,processing,제품형 또는 가공 간식으로 볼 수 있음,v0.2
+F0021,C039,confirmed,0.95,ingredient,토마토 자체,v0.2
+F0021,C035,confirmed,0.80,food_base,식사용 재료로는 채소 기반으로 취급,v0.2
+F0021,C004,possible,0.70,nutrient,식이섬유 가능성,v0.2
+F0021,C017,confirmed,0.90,processing,생토마토 기준 최소가공,v0.2
+F0022,C048,confirmed,0.95,ingredient,양상추 자체,v0.2
+F0022,C035,confirmed,0.95,food_base,채소 기반,v0.2
+F0022,C004,possible,0.70,nutrient,식이섬유 가능성,v0.2
+F0022,C017,confirmed,0.90,processing,생채소 기준 최소가공,v0.2
+F0023,C049,confirmed,0.95,ingredient,양파 자체,v0.2
+F0023,C035,confirmed,0.90,food_base,채소 기반,v0.2
+F0023,C025,possible,0.75,digestive_candidate,양파는 FODMAP 후보로 볼 수 있음,v0.2
+F0023,C017,confirmed,0.85,processing,생양파 또는 단순 조리 기준,v0.2
+F0024,C050,confirmed,0.95,ingredient,오이 자체,v0.2
+F0024,C035,confirmed,0.90,food_base,채소 기반,v0.2
+F0024,C004,possible,0.60,nutrient,식이섬유 가능성,v0.2
+F0024,C017,confirmed,0.90,processing,생오이 기준 최소가공,v0.2
+F0025,C051,confirmed,0.95,ingredient,당근 자체,v0.2
+F0025,C035,confirmed,0.90,food_base,채소 기반,v0.2
+F0025,C004,possible,0.70,nutrient,식이섬유 가능성,v0.2
+F0025,C017,confirmed,0.85,processing,단순 조리 또는 생당근 기준,v0.2
+F0026,C052,confirmed,0.95,ingredient,브로콜리 자체,v0.2
+F0026,C035,confirmed,0.90,food_base,채소 기반,v0.2
+F0026,C004,confirmed,0.75,nutrient,식이섬유가 많은 채소로 분류,v0.2
+F0026,C025,possible,0.60,digestive_candidate,일부 사람에게 소화 반응 후보 가능,v0.2
+F0026,C017,confirmed,0.85,processing,단순 조리 기준 최소가공,v0.2
+F0027,C053,confirmed,0.95,ingredient,바나나 자체,v0.2
+F0027,C036,confirmed,0.95,food_base,과일 기반,v0.2
+F0027,C004,possible,0.70,nutrient,식이섬유 가능성,v0.2
+F0027,C001,possible,0.70,nutrient,자연 당류가 있는 과일,v0.2
+F0027,C017,confirmed,0.90,processing,생과일 기준 최소가공,v0.2
+F0028,C054,confirmed,0.95,ingredient,사과 자체,v0.2
+F0028,C036,confirmed,0.95,food_base,과일 기반,v0.2
+F0028,C004,possible,0.75,nutrient,식이섬유 가능성,v0.2
+F0028,C025,possible,0.60,digestive_candidate,일부 사람에게 FODMAP 후보 가능,v0.2
+F0028,C017,confirmed,0.90,processing,생과일 기준 최소가공,v0.2
+F0029,C055,confirmed,0.95,ingredient,딸기 자체,v0.2
+F0029,C036,confirmed,0.95,food_base,과일 기반,v0.2
+F0029,C004,possible,0.70,nutrient,식이섬유 가능성,v0.2
+F0029,C001,possible,0.60,nutrient,자연 당류가 있는 과일,v0.2
+F0029,C017,confirmed,0.90,processing,생과일 기준 최소가공,v0.2
+F0030,C056,confirmed,0.95,ingredient,아보카도 자체,v0.2
+F0030,C036,confirmed,0.80,food_base,과일 기반으로 분류,v0.2
+F0030,C006,possible,0.75,nutrient,아보카도는 지방 함량이 높은 편,v0.2
+F0030,C004,possible,0.70,nutrient,식이섬유 가능성,v0.2
+F0030,C017,confirmed,0.90,processing,생과일 기준 최소가공,v0.2

@@ -36,3 +36,30 @@ C034,meat_based,육류 기반,food_base,,고기 중심 음식
 C035,vegetable_based,채소 기반,food_base,,채소 중심 음식
 C036,fruit_based,과일 기반,food_base,,과일 중심 음식
 C037,mixed_meal,혼합식,food_structure,,여러 재료가 섞인 한 끼 음식
+C038,wheat,밀,ingredient,,밀 또는 밀가루 기반 재료
+C039,tomato,토마토,ingredient,,토마토 또는 토마토소스
+C040,cream,크림,ingredient,,크림 또는 크림소스
+C041,olive_oil,올리브오일,ingredient,,올리브오일 기반 조리 또는 드레싱
+C042,beef,소고기,ingredient,,소고기 기반 재료
+C043,pork,돼지고기,ingredient,,돼지고기 기반 재료
+C044,chicken,닭고기,ingredient,,닭고기 기반 재료
+C045,shrimp,새우,ingredient,,새우 기반 재료
+C046,fish,생선,ingredient,,생선 기반 재료
+C047,rice_noodle,쌀국수면,ingredient,,쌀가루 기반 면
+C048,lettuce,양상추,ingredient,,양상추 또는 잎채소
+C049,onion,양파,ingredient,,양파 성분
+C050,cucumber,오이,ingredient,,오이 성분
+C051,carrot,당근,ingredient,,당근 성분
+C052,broccoli,브로콜리,ingredient,,브로콜리 성분
+C053,banana,바나나,ingredient,,바나나 성분
+C054,apple,사과,ingredient,,사과 성분
+C055,strawberry,딸기,ingredient,,딸기 성분
+C056,avocado,아보카도,ingredient,,아보카도 성분
+C057,yogurt,요거트,ingredient,,요거트 또는 발효유 기반 성분
+C058,sweet_syrup,시럽 또는 당코팅,ingredient,,시럽 탕후루 코팅 등 첨가당 성분
+C059,cheese,치즈,ingredient,,치즈 성분
+C060,bread_bun,번 또는 빵,ingredient,,햄버거 번 샌드위치 빵 등
+C061,pasta_noodle,파스타면,ingredient,,파스타 면
+C062,mala_spice,마라향신료,ingredient,,마라탕 마라샹궈 등 향신료 기반 성분
+C063,soup_broth,육수,ingredient,,국물 또는 육수 기반
+C064,white_rice,흰쌀,ingredient,,흰쌀 기반 재료
