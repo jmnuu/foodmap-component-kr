@@ -40,3 +40,8 @@
 {"id":"S0038","input":"아침에 카페라떼만 마시고 점심에 김밥 먹었어.","food_mentions":[{"raw_text":"카페라떼","food_id":"F0004","normalized_food":"라떼"},{"raw_text":"김밥","food_id":"F0002","normalized_food":"김밥"}],"context":{"meal_time":"breakfast,lunch"}}
 {"id":"S0039","input":"점심에 라면 먹고 후식으로 젤라또 먹었다.","food_mentions":[{"raw_text":"라면","food_id":"F0001","normalized_food":"라면"},{"raw_text":"젤라또","food_id":"F0009","normalized_food":"아이스크림"}],"context":{"meal_time":"lunch"}}
 {"id":"S0040","input":"저녁에 프라이드치킨이랑 떡볶이 같이 먹었어.","food_mentions":[{"raw_text":"프라이드치킨","food_id":"F0006","normalized_food":"치킨"},{"raw_text":"떡볶이","food_id":"F0008","normalized_food":"떡볶이"}],"context":{"meal_time":"dinner"}}
+{"id":"S0043","input":"토마토 파스타 먹었어.","food_mentions":[{"raw_text":"토마토","food_id":"F0021","normalized_food":"토마토"},{"raw_text":"파스타","food_id":"F0014","normalized_food":"파스타"}],"context":{"meal_time":"lunch"}}
+{"id":"S0044","input":"새우버거랑 콜라 마셨어.","food_mentions":[{"raw_text":"버거","food_id":"F0012","normalized_food":"햄버거"},{"raw_text":"콜라","food_id":"F0007","normalized_food":"콜라"}],"context":{"meal_time":"dinner"}}
+{"id":"S0045","input":"딸기탕후루 먹었어.","food_mentions":[{"raw_text":"딸기","food_id":"F0029","normalized_food":"딸기"},{"raw_text":"탕후루","food_id":"F0020","normalized_food":"탕후루"}],"context":{"meal_time":"snack"}}
+{"id":"S0046","input":"크림파스타랑 샐러드 먹었어.","food_mentions":[{"raw_text":"파스타","food_id":"F0014","normalized_food":"파스타"},{"raw_text":"샐러드","food_id":"F0015","normalized_food":"샐러드"}],"context":{"meal_time":"dinner"}}
+{"id":"S0047","input":"아보카도 포케 먹었어.","food_mentions":[{"raw_text":"아보카도","food_id":"F0030","normalized_food":"아보카도"},{"raw_text":"포케","food_id":"F0016","normalized_food":"포케"}],"context":{"meal_time":"lunch"}}
