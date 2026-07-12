@@ -45,3 +45,9 @@
 {"id":"S0045","input":"딸기탕후루 먹었어.","food_mentions":[{"raw_text":"딸기","food_id":"F0029","normalized_food":"딸기"},{"raw_text":"탕후루","food_id":"F0020","normalized_food":"탕후루"}],"context":{"meal_time":"snack"}}
 {"id":"S0046","input":"크림파스타랑 샐러드 먹었어.","food_mentions":[{"raw_text":"파스타","food_id":"F0014","normalized_food":"파스타"},{"raw_text":"샐러드","food_id":"F0015","normalized_food":"샐러드"}],"context":{"meal_time":"dinner"}}
 {"id":"S0047","input":"아보카도 포케 먹었어.","food_mentions":[{"raw_text":"아보카도","food_id":"F0030","normalized_food":"아보카도"},{"raw_text":"포케","food_id":"F0016","normalized_food":"포케"}],"context":{"meal_time":"lunch"}}
+{"id":"A0001","input":"마라톤 끝나고 물만 마셨어.","food_mentions":[],"context":{"type":"adversarial"}}
+{"id":"A0002","input":"포기하지 말자.","food_mentions":[],"context":{"type":"adversarial"}}
+{"id":"A0003","input":"오늘은 사과할 일이 있었어.","food_mentions":[],"context":{"type":"adversarial"}}
+{"id":"A0004","input":"오늘 사과 먹었어.","food_mentions":[{"raw_text":"사과","food_id":"F0028","normalized_food":"사과"}],"context":{"meal_time":"snack"}}
+{"id":"A0005","input":"마라탕 먹었어.","food_mentions":[{"raw_text":"마라탕","food_id":"F0011","normalized_food":"마라탕"}],"context":{"meal_time":"dinner"}}
+{"id":"A0006","input":"쌀국수 먹었어.","food_mentions":[{"raw_text":"쌀국수","food_id":"F0017","normalized_food":"쌀국수"}],"context":{"meal_time":"lunch"}}

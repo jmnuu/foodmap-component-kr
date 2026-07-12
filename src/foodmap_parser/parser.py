@@ -145,6 +145,49 @@ def merge_final_components(found_foods, explicit_components):
         )
     )
 
+AMBIGUOUS_FOOD_ALIASES = {
+    "마라",
+    "포",
+    "사과",
+}
+
+BLOCKED_NEXT_CHARS = {
+    "마라": ["톤"],
+    "포": ["기", "장", "함"],
+    "사과": ["하", "할", "해", "했", "합니다", "했다"],
+}
+
+MEAL_CONTEXT_CUES = [
+    "먹", "먹었", "먹음", "먹고", "먹는", "먹을",
+    "마시", "마셨", "마심", "마시고",
+    "주문", "시켰", "배달",
+    "아침", "점심", "저녁", "야식", "간식", "후식",
+    "식사", "밥", "카페", "디저트",
+]
+
+
+def has_meal_context(text, start, end, window=12):
+    left = max(0, start - window)
+    right = min(len(text), end + window)
+    context = text[left:right]
+
+    return any(cue in context for cue in MEAL_CONTEXT_CUES)
+
+
+def should_accept_food_alias(text, alias, start, end):
+    next_text = text[end:end + 5]
+
+    # 예: 마라톤, 포기, 사과하다 차단
+    for blocked in BLOCKED_NEXT_CHARS.get(alias, []):
+        if next_text.startswith(blocked):
+            return False
+
+    # 짧고 애매한 alias는 식사 문맥이 있을 때만 허용
+    if alias in AMBIGUOUS_FOOD_ALIASES:
+        return has_meal_context(text, start, end)
+
+    return True
+
 def parse_food_log(text):
     food_lookup = build_food_lookup()
     component_lookup = build_component_lookup()
@@ -173,6 +216,10 @@ def parse_food_log(text):
             )
 
             if not overlaps:
+                if not should_accept_food_alias(text, alias, span[0], span[1]):
+                    start = index + len(alias)
+                    continue
+
                 food_id = info["food_id"]
 
                 found_foods.append({

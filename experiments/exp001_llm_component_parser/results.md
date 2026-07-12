@@ -87,3 +87,30 @@ Component Matching:
 
 The rule-based parser works correctly on the current v0.1-mini dataset.  
 The next step is to test generalization by adding more foods, harder aliases, and more diverse meal sentences.
+
+## Adversarial Alias Guard
+
+### Problem
+
+The parser could falsely detect short or ambiguous aliases inside non-food words.
+
+Examples:
+
+- 마라톤 → 마라
+- 포기하지 말자 → 포
+- 사과할 일이 있었어 → 사과
+
+### Fix
+
+- Removed risky short aliases such as `마라` and `포`.
+- Added `should_accept_food_alias()` to block ambiguous aliases in non-food contexts.
+- Added adversarial examples with empty `food_mentions`.
+- Updated evaluation to treat empty gold and empty prediction as correct.
+
+### Result
+
+The parser correctly avoids false positives for adversarial non-food sentences while still detecting real food sentences such as:
+
+- 오늘 사과 먹었어.
+- 마라탕 먹었어.
+- 쌀국수 먹었어.

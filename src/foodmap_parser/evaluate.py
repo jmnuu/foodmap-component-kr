@@ -25,6 +25,10 @@ def precision_recall_f1(pred_set, gold_set):
     pred_set = set(pred_set)
     gold_set = set(gold_set)
 
+    # 둘 다 비어 있으면 "아무 음식도 잡지 않은 것"이 정답
+    if len(pred_set) == 0 and len(gold_set) == 0:
+        return 1.0, 1.0, 1.0, 0, 0, 0
+
     tp = len(pred_set & gold_set)
     fp = len(pred_set - gold_set)
     fn = len(gold_set - pred_set)
