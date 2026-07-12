@@ -17,6 +17,7 @@ def main():
     annotations = load_csv("food_component_annotations.csv")
     aliases = load_csv("food_aliases.csv")
     component_aliases = load_csv("component_aliases.csv")
+    mfds_links = load_csv("mfds_food_links.csv")
 
     component_ids = {row["component_id"] for row in components}
     food_ids = {row["food_id"] for row in foods}
@@ -37,6 +38,10 @@ def main():
         if row["component_id"] not in component_ids:
             errors.append(f"Unknown component_id in component_aliases: {row['component_id']}")
 
+    for row in mfds_links:
+        if row["food_id"] not in food_ids:
+            errors.append(f"Unknown food_id in mfds_food_links: {row['food_id']}")
+
     print("FoodMap Dataset Validation")
     print("==========================")
     print(f"components: {len(components)}")
@@ -44,6 +49,7 @@ def main():
     print(f"annotations: {len(annotations)}")
     print(f"aliases: {len(aliases)}")
     print(f"component aliases: {len(component_aliases)}")
+    print(f"mfds links: {len(mfds_links)}")
 
     if errors:
         print("\nErrors:")

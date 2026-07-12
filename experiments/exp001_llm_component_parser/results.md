@@ -114,3 +114,37 @@ The parser correctly avoids false positives for adversarial non-food sentences w
 - 오늘 사과 먹었어.
 - 마라탕 먹었어.
 - 쌀국수 먹었어.
+
+---
+
+## MFDS Food Database Linking v0.2.1
+
+### Date
+
+2026-07-12
+
+### Goal
+
+Connect the curated FoodMap food ontology with official MFDS food database entries.
+
+The purpose of this step is not to import the entire MFDS database into FoodMap directly, but to create a link table between FoodMap food IDs and official MFDS food codes.
+
+### Why This Step Matters
+
+FoodMap currently uses a manually curated food ontology.  
+By linking FoodMap food IDs to the MFDS food database, the project gains:
+
+- official Korean food names
+- official food codes
+- external food category information
+- future access to nutrition values
+- a basis for expanding alias and component candidates
+
+This makes the dataset more reliable and easier to extend.
+
+### Data Used
+
+The MFDS food database files were added locally under:
+
+```text
+data/raw/mfds/
