@@ -1,0 +1,55 @@
+{
+  "version": "v0.3",
+  "sources": [
+    {
+      "source_id": "SRC_FOODMAP_CURATED_V01",
+      "source_type": "internal_curated_dataset",
+      "title": "FoodMap v0.1 food-component annotations",
+      "locator": "data/v0.1/food_component_annotations.csv",
+      "version": "v0.1",
+      "quality_note": "Legacy curated baseline. Individual annotations retain evidence_type and notes but are not all externally cited."
+    },
+    {
+      "source_id": "SRC_MFDS_FOOD_NUTRIENT_DB",
+      "source_type": "official_food_database",
+      "title": "MFDS Food Nutrient Database",
+      "url": "https://www.foodsafetykorea.go.kr/fcdb/simple/search/firstList.do",
+      "quality_note": "Use for Korean nutrient values and official food-code links; record the downloaded release and retrieval date per import."
+    },
+    {
+      "source_id": "SRC_FOODON",
+      "source_type": "food_ontology",
+      "title": "FoodOn: A farm to fork ontology",
+      "url": "https://foodon.org/",
+      "quality_note": "Use for ontology categories, ingredients, processes, and cross-domain identifiers; it is not a substitute for Korean nutrient values."
+    },
+    {
+      "source_id": "SRC_GARDINER_2023",
+      "source_type": "systematic_review_meta_analysis",
+      "citation": "Gardiner C, et al. The effect of caffeine on subsequent sleep: A systematic review and meta-analysis. Sleep Medicine Reviews. 2023;69:101764.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/36870101/",
+      "quality_note": "Supports direction and timing scope for the synthetic late-caffeine sleep prior, not a personalized clinical estimate."
+    },
+    {
+      "source_id": "SRC_ZEEVI_2015",
+      "source_type": "cohort_and_intervention_study",
+      "citation": "Zeevi D, et al. Personalized Nutrition by Prediction of Glycemic Responses. Cell. 2015;163(5):1079-1094.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26590418/",
+      "quality_note": "Supports individual variability in postprandial glucose responses; FoodMap uses it only with CGM-compatible outcomes."
+    },
+    {
+      "source_id": "SRC_DASH_SODIUM_2026",
+      "source_type": "randomized_feeding_trial_analysis",
+      "citation": "The Effects of Sodium Reduction and the DASH Diet on Ambulatory Blood Pressure. 2026.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/42429484/",
+      "quality_note": "Supports the direction of the synthetic sodium-blood-pressure prior; a valid blood-pressure measurement is required."
+    },
+    {
+      "source_id": "SRC_SYNTHETIC_GENERATOR_V03",
+      "source_type": "simulation_code",
+      "title": "FoodMap v0.3 synthetic FoodMap generator",
+      "locator": "src/foodmap_parser/synthetic_foodmap.py",
+      "quality_note": "Produces synthetic pipeline-validation records only; generated response scores are not clinical measurements."
+    }
+  ]
+}

@@ -30,7 +30,12 @@ class AssociationPipelineTests(unittest.TestCase):
                 for row in result["unresolved_food_candidates"]
             ))
             self.assertTrue((output_dir / "event_relations.jsonl").exists())
+            self.assertTrue((output_dir / "source_ledger.jsonl").exists())
             self.assertTrue((output_dir / "coverage_report.json").exists())
 
             report = json.loads((output_dir / "coverage_report.json").read_text(encoding="utf-8"))
             self.assertEqual(report["unresolved_food_candidates"], 1)
+            self.assertTrue(all(
+                row["source_ids"]
+                for row in result["event_relations"]
+            ))

@@ -23,10 +23,13 @@ Meal-log JSONL
 | `event_relations` | Event/food mention -> typed relation -> target | Preserves `OCCURS_AT`, `CONTAINS_FOOD`, `HAS_QUANTITY`, `HAS_MODIFIER`, and `HAS_COMPONENT` as queryable edges. |
 | `unresolved_food_candidates` | Eating clause -> unrecognized candidate | Expands the ontology from real input without automatic, unsafe registration. |
 | `coverage_report` | Input coverage summary | Shows whether the current ontology is keeping up with actual language. |
+| `source_ledger` | Input source identifiers and origin | Allows every output relation to point back to a source record without copying private text into every row. |
 
-Each relation includes its source record, parser version, confidence, and, when
-applicable, the original text span. This makes a downstream food-body result
-traceable to the text and reference-data decision that produced it.
+Each relation includes `source_ids`, its source record, parser version,
+confidence, and, when applicable, the original text span. A food-component
+relation includes both the meal-log source and the reference annotation source.
+This makes a downstream food-body result traceable to the text and
+reference-data decision that produced it.
 
 ## Why JSONL and Parquet Both Exist
 

@@ -18,6 +18,7 @@ except ImportError:
 ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = ROOT / "data"
 PARSER_VERSION = "v0.2-rule-based"
+REFERENCE_SOURCE_ID = "SRC_FOODMAP_CURATED_V01"
 
 MODIFIER_WORDS = {
     "제로", "디카페인", "아이스", "매운", "작은", "큰", "뜨거운", "차가운",
@@ -130,16 +131,27 @@ def build_pipeline(records):
     relations = []
     unresolved_candidates = []
     component_counts = Counter()
+    source_ledger = []
 
     for record in records:
         source_record_id = str(record["id"])
         text = record["input"]
+        input_source_id = f"INPUT:{source_record_id}"
+        source_ledger.append({
+            "source_id": input_source_id,
+            "source_type": "meal_log_input",
+            "source_record_id": source_record_id,
+            "data_origin": record.get("data_origin", "unknown"),
+            "recorded_at": record.get("recorded_at"),
+            "quality_note": "Original input text is stored in the event table and may require access control.",
+        })
         parsed_events = parse_meal_events(text)["events"]
         parsed_foods = parse_food_log(text)["foods"]
 
         for candidate_index, candidate in enumerate(find_unresolved_food_candidates(text, parsed_foods)):
             candidate["candidate_id"] = f"{source_record_id}:U{candidate_index:02d}"
             candidate["source_record_id"] = source_record_id
+            candidate["source_ids"] = [input_source_id]
             unresolved_candidates.append(candidate)
 
         for event in parsed_events:
@@ -148,6 +160,10 @@ def build_pipeline(records):
                 "event_id": event_id,
                 "source_record_id": source_record_id,
                 "source_text": text,
+                "user_id": record.get("user_id"),
+                "recorded_at": record.get("recorded_at"),
+                "data_origin": record.get("data_origin", "unknown"),
+                "source_ids": [input_source_id],
                 "time_expression": event["time_expression"],
                 "meal_time": event["meal_time"],
                 "consumption_status": event["consumption_status"],
@@ -166,6 +182,7 @@ def build_pipeline(records):
                 "evidence_type": "observed_text",
                 "confidence": 1.0,
                 "source_record_id": source_record_id,
+                "source_ids": [input_source_id],
                 "parser_version": PARSER_VERSION,
             })
 
@@ -183,6 +200,7 @@ def build_pipeline(records):
                     "unit": food["unit"],
                     "modifiers": food["modifiers"],
                     "parser_version": PARSER_VERSION,
+                    "source_ids": [input_source_id],
                 }
                 meal_event_foods.append(food_row)
 
@@ -199,6 +217,7 @@ def build_pipeline(records):
                     "source_start": food["source_start"],
                     "source_end": food["source_end"],
                     "parser_version": PARSER_VERSION,
+                    "source_ids": [input_source_id],
                 }
                 base_relation["relation_id"] = f"{food_mention_id}:R00"
                 relations.append(base_relation)
@@ -221,6 +240,7 @@ def build_pipeline(records):
                         "source_start": food["source_start"],
                         "source_end": food["source_end"],
                         "parser_version": PARSER_VERSION,
+                        "source_ids": [input_source_id],
                     })
 
                 for modifier_index, modifier in enumerate(food["modifiers"]):
@@ -238,6 +258,7 @@ def build_pipeline(records):
                         "source_start": food["source_start"],
                         "source_end": food["source_end"],
                         "parser_version": PARSER_VERSION,
+                        "source_ids": [input_source_id],
                     })
 
                 for component in component_lookup.get(food["food_id"], []):
@@ -253,8 +274,10 @@ def build_pipeline(records):
                         "object_value": component["component"],
                         "component_status": component["status"],
                         "evidence_type": "reference_annotation",
+                        "reference_record_id": f"{food['food_id']}:{metadata['component_id']}",
                         "confidence": component["confidence"],
                         "source_record_id": source_record_id,
+                        "source_ids": [input_source_id, REFERENCE_SOURCE_ID],
                         "source_start": food["source_start"],
                         "source_end": food["source_end"],
                         "parser_version": PARSER_VERSION,
@@ -269,6 +292,7 @@ def build_pipeline(records):
         "unique_food_ids_observed": len({row["food_id"] for row in meal_event_foods}),
         "unique_components_linked": len(component_counts),
         "component_mention_counts": dict(sorted(component_counts.items())),
+        "source_record_count": len(source_ledger),
         "parser_version": PARSER_VERSION,
     }
 
@@ -277,6 +301,7 @@ def build_pipeline(records):
         "meal_event_foods": meal_event_foods,
         "event_relations": relations,
         "unresolved_food_candidates": unresolved_candidates,
+        "source_ledger": source_ledger,
         "coverage_report": coverage_report,
     }
 
@@ -291,7 +316,7 @@ def materialize_parquet(output_dir, output_paths):
         ) from error
 
     connection = duckdb.connect()
-    for name in ("meal_events", "meal_event_foods", "event_relations", "unresolved_food_candidates"):
+    for name in ("meal_events", "meal_event_foods", "event_relations", "unresolved_food_candidates", "source_ledger"):
         source_path = output_paths[name]
         target_path = output_dir / f"{name}.parquet"
         source_sql_path = str(source_path).replace("'", "''")
@@ -309,7 +334,7 @@ def run_pipeline(input_path, output_dir, write_parquet=True):
     result = build_pipeline(records)
     output_paths = {}
 
-    for name in ("meal_events", "meal_event_foods", "event_relations", "unresolved_food_candidates"):
+    for name in ("meal_events", "meal_event_foods", "event_relations", "unresolved_food_candidates", "source_ledger"):
         output_path = output_dir / f"{name}.jsonl"
         write_jsonl(output_path, result[name])
         output_paths[name] = output_path

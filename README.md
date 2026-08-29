@@ -27,7 +27,9 @@ v0.1 baseline parser with a v0.2 MealEvent dataset design.
 - [Dataset design](docs/dataset_design.md)
 - [Annotation guideline](docs/annotation_guideline.md)
 - [Literature notes](docs/literature_notes.md)
+- [Daily result: 2026-08-29](reports/2026-08-29_foodmap_result.md)
 - [Association extraction pipeline](docs/association_pipeline.md)
+- [Synthetic FoodMap and personalization](docs/synthetic_foodmap.md)
 
 ## Dataset Files
 
@@ -145,3 +147,10 @@ The association pipeline creates relationship-rich MealEvent, food mention, and
 typed relation data from meal-log JSONL. It writes an unresolved-food review
 queue so the food dictionary expands from real input instead of guessed entries.
 It materializes both auditable JSONL and DuckDB-backed Parquet outputs.
+
+## Synthetic FoodMap
+
+The v0.3 synthetic FoodMap separates literature-backed directional priors from
+synthetic response scores. It uses an empirical-Bayes update so individual data
+gradually adjusts a population map instead of overreacting to a small number of
+records. Synthetic outputs are pipeline-validation data, not clinical evidence.

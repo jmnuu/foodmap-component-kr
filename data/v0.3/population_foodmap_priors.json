@@ -1,0 +1,80 @@
+{
+  "version": "v0.3",
+  "purpose": "Synthetic-data baseline only. These standardized priors are not clinical effect estimates or dietary recommendations.",
+  "outcomes": [
+    {
+      "outcome_id": "sleep_disruption_score",
+      "description": "Standardized synthetic sleep-disruption score; higher means more disruption.",
+      "required_instrument": "wearable_sleep"
+    },
+    {
+      "outcome_id": "postprandial_glucose_response_score",
+      "description": "Standardized synthetic post-meal glucose-response score; higher means a larger response.",
+      "required_instrument": "cgm"
+    },
+    {
+      "outcome_id": "blood_pressure_response_score",
+      "description": "Standardized synthetic blood-pressure response score; higher means a larger response.",
+      "required_instrument": "blood_pressure_monitor"
+    }
+  ],
+  "priors": [
+    {
+      "prior_id": "PF001_late_caffeine_sleep",
+      "trigger": {
+        "component_ids_any": ["C008"],
+        "meal_times": ["dinner", "night", "late_night"]
+      },
+      "outcome_id": "sleep_disruption_score",
+      "direction": "increase",
+      "population_prior_mean": 0.35,
+      "prior_strength": 8,
+      "confidence": "high",
+      "evidence": {
+        "source_id": "SRC_GARDINER_2023",
+        "citation": "Gardiner et al., The effect of caffeine on subsequent sleep: A systematic review and meta-analysis, 2023.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/36870101/",
+        "interpretation": "Caffeine was associated with shorter and less efficient subsequent sleep; timing and dose matter."
+      },
+      "simulation_note": "The mean is a standardized simulation parameter, not the study's clinical effect size."
+    },
+    {
+      "prior_id": "PF002_sugar_or_refined_carbohydrate_glucose",
+      "trigger": {
+        "component_ids_any": ["C001", "C002"],
+        "meal_times": ["breakfast", "lunch", "dinner", "snack", "night", "late_night"]
+      },
+      "outcome_id": "postprandial_glucose_response_score",
+      "direction": "increase",
+      "population_prior_mean": 0.4,
+      "prior_strength": 10,
+      "confidence": "moderate",
+      "evidence": {
+        "source_id": "SRC_ZEEVI_2015",
+        "citation": "Zeevi et al., Personalized Nutrition by Prediction of Glycemic Responses, 2015.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/26590418/",
+        "interpretation": "Post-meal glucose responses vary substantially between people; nutrient content alone is insufficient for individual prediction."
+      },
+      "simulation_note": "This prior is only valid for a CGM-derived response outcome, not for sleep or heart-rate data."
+    },
+    {
+      "prior_id": "PF003_high_sodium_blood_pressure",
+      "trigger": {
+        "component_ids_any": ["C005"],
+        "meal_times": ["breakfast", "lunch", "dinner", "snack", "night", "late_night"]
+      },
+      "outcome_id": "blood_pressure_response_score",
+      "direction": "increase",
+      "population_prior_mean": 0.25,
+      "prior_strength": 10,
+      "confidence": "moderate",
+      "evidence": {
+        "source_id": "SRC_DASH_SODIUM_2026",
+        "citation": "DASH-Sodium Trial ambulatory blood-pressure analysis, 2026.",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/42429484/",
+        "interpretation": "Lower dietary sodium within the trial context was associated with lower ambulatory blood pressure."
+      },
+      "simulation_note": "A consumer watch does not generally measure blood pressure reliably enough for this outcome; use a validated BP measurement source."
+    }
+  ]
+}
