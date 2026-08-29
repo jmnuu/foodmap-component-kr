@@ -44,6 +44,11 @@ class MealEventParserTests(unittest.TestCase):
 
         self.assertEqual(result["events"], [])
 
+    def test_does_not_extract_rice_from_unknown_compound_food(self):
+        result = parse_meal_events("저녁에 비빔밥 먹었어.")
+
+        self.assertEqual(result["events"], [])
+
 
 if __name__ == "__main__":
     unittest.main()

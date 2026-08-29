@@ -151,6 +151,11 @@ AMBIGUOUS_FOOD_ALIASES = {
     "사과",
 }
 
+# A one-syllable food alias must not be recovered from the tail of an unknown
+# compound such as "비빔밥". Longer aliases such as "공기밥" are matched first.
+SHORT_ALIAS_BOUNDARY_REQUIRED = {"밥"}
+ALLOWED_PREVIOUS_CHARS = {"랑", "과", "와", "은", "는", "을", "를", "에"}
+
 BLOCKED_NEXT_CHARS = {
     "마라": ["톤"],
     "포": ["기", "장", "함"],
@@ -176,6 +181,11 @@ def has_meal_context(text, start, end, window=12):
 
 def should_accept_food_alias(text, alias, start, end):
     next_text = text[end:end + 5]
+
+    if alias in SHORT_ALIAS_BOUNDARY_REQUIRED and start > 0:
+        previous_char = text[start - 1]
+        if "가" <= previous_char <= "힣" and previous_char not in ALLOWED_PREVIOUS_CHARS:
+            return False
 
     # 예: 마라톤, 포기, 사과하다 차단
     for blocked in BLOCKED_NEXT_CHARS.get(alias, []):

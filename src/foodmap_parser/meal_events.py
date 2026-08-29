@@ -281,6 +281,8 @@ def parse_meal_events(text):
         event["foods"].append({
             "raw_text": food["raw_text"],
             "food_id": food["food_id"],
+            "source_start": food["start"],
+            "source_end": food["end"],
             "quantity": quantity,
             "unit": unit,
             "modifiers": _modifiers(food, text, time_expression, foods),

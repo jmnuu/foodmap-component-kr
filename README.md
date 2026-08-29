@@ -27,6 +27,7 @@ v0.1 baseline parser with a v0.2 MealEvent dataset design.
 - [Dataset design](docs/dataset_design.md)
 - [Annotation guideline](docs/annotation_guideline.md)
 - [Literature notes](docs/literature_notes.md)
+- [Association extraction pipeline](docs/association_pipeline.md)
 
 ## Dataset Files
 
@@ -137,3 +138,10 @@ different job:
 The `data/v0.2/` directory contains the MealEvent annotation seed set and the
 corpus expansion plan. The detailed schema and selection criteria are in
 `docs/dataset_design.md`.
+
+## Association Pipeline
+
+The association pipeline creates relationship-rich MealEvent, food mention, and
+typed relation data from meal-log JSONL. It writes an unresolved-food review
+queue so the food dictionary expands from real input instead of guessed entries.
+It materializes both auditable JSONL and DuckDB-backed Parquet outputs.
