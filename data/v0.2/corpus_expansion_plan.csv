@@ -1,0 +1,9 @@
+phenomenon,target_examples,why_it_is_needed
+single_food_single_time,120,Establishes the basic event extraction baseline.
+multi_food_same_event,100,Tests grouping of foods consumed together.
+multiple_events_one_text,90,Tests food-to-time relation rather than global sentence labels.
+quantity_and_unit,70,Supports dose-aware features when text provides an amount.
+negation_and_future_intent,60,Prevents non-consumed or planned foods from entering health analysis.
+product_and_cooking_modifiers,70,Distinguishes decaf zero-sugar fried and similar variants.
+vague_or_missing_time,40,Tests explicit unknown handling without fabricated timestamps.
+non_food_homonyms_and_adversarial,50,Measures false-positive resistance.

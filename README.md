@@ -19,7 +19,14 @@ This dataset will later be connected with wearable data such as Apple Watch slee
 
 ## Current Version
 
-v0.1
+v0.1 baseline parser with a v0.2 MealEvent dataset design.
+
+## Documentation
+
+- [Research roadmap](docs/research_roadmap.md)
+- [Dataset design](docs/dataset_design.md)
+- [Annotation guideline](docs/annotation_guideline.md)
+- [Literature notes](docs/literature_notes.md)
 
 ## Dataset Files
 
@@ -30,6 +37,7 @@ data/v0.1/
 ├── food_component_annotations.csv
 ├── food_aliases.csv
 └── sentence_examples.jsonl
+```
 
 ## Current Scope
 
@@ -47,14 +55,21 @@ The parser performs:
 - parser evaluation
 - missing alias mining
 
+The v0.2 `MealEvent Parser` builds on this baseline to group detected foods by
+time expression and extract explicit quantities, modifiers, and consumption
+status. It remains a rule-based research baseline and is evaluated separately
+from the closed-set v0.1 food-ID score. Its primary metric is food-time-status
+matching, which requires every extracted food to be assigned the correct time
+bucket and consumption state.
+
 ## Current Dataset Size
 
 - Foods: 30
 - Components: 64
 - Food-component annotations: 168
-- Food aliases: 67
+- Food aliases: 65
 - Component aliases: 19
-- Sentence examples: 47
+- Sentence examples: 53
 
 ## Current Evaluation
 
@@ -66,6 +81,17 @@ On the current closed-set sentence examples:
 - Component precision: 1.000
 - Component recall: 1.000
 - Component F1: 1.000
+
+## MealEvent Baseline Evaluation
+
+On the current 36-example v0.2 development seed set:
+
+- Food ID F1: 1.000
+- Food-time-status F1: 1.000
+
+This is a closed development seed set used for schema and rule regression
+testing. It is not evidence of generalization; the planned frozen evaluation
+set will use independently written, unseen meal logs.
 
 ## Important Limitation
 
@@ -93,3 +119,21 @@ The next version will implement a Meal Event Parser that extracts:
 - consumption status
 - modifiers
 - negation and future intent
+
+The first association study will focus on the relationship between late caffeine
+events and same-night wearable sleep metrics. It is an association study, not a
+medical or causal claim.
+
+## Data Architecture
+
+FoodMap deliberately uses more than one storage format because each layer has a
+different job:
+
+- CSV: small, curated reference tables that researchers need to inspect and edit.
+- JSONL: nested text annotations where one meal log can contain several meal events.
+- Parquet: large, immutable, analysis-ready event and wearable tables.
+- DuckDB: local joins and aggregate analysis over Parquet without operating a server.
+
+The `data/v0.2/` directory contains the MealEvent annotation seed set and the
+corpus expansion plan. The detailed schema and selection criteria are in
+`docs/dataset_design.md`.
