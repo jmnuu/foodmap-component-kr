@@ -34,6 +34,8 @@ MealEvent dataset design.
 - [Korean text component language model](docs/component_language_model.md)
 - [General probability data expansion](docs/general_probability_data_expansion.md)
 - [v0.3 dictionary expansion](docs/dictionary_expansion_v0.3.md)
+- [High-uncertainty recipe collection](docs/recipe_observation_collection.md)
+- [Pilot recipe-observation review](docs/recipe_observations_pilot_review.md)
 - [Food component uncertainty inventory](docs/food_uncertainty_inventory.md)
 - [Daily result: 2026-08-29](reports/2026-08-29_foodmap_result.md)
 - [Association extraction pipeline](docs/association_pipeline.md)

@@ -38,8 +38,11 @@ explicit prior strengths. A manual prior remains authoritative for foods such as
 generic sandwiches where food-level annotations do not adequately represent
 recipe variability.
 
-When independently sourced recipe observations become available, the model can
-update the prior without replacing its provenance:
+The collection queue and posterior updater are now implemented in
+`data/v0.3/high_uncertainty_recipe_collection_queue.csv` and
+`src/foodmap_parser/recipe_observations.py`. When independently sourced recipe
+observations are reviewed, the model can update the prior without replacing its
+provenance:
 
 ```text
 alpha_posterior = alpha_prior + weighted recipes containing the component

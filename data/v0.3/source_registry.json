@@ -18,6 +18,21 @@
       "quality_note": "Fifty additional Korean foods, aliases, components, and reviewed probability annotations. This is an auditable coverage expansion, not an independent population recipe-frequency dataset."
     },
     {
+      "source_id": "SRC_FOODMAP_COLLECTION_QUEUE_V03",
+      "source_type": "internal_data_collection_plan",
+      "title": "FoodMap v0.3 high-uncertainty recipe collection queue",
+      "locator": "data/v0.3/high_uncertainty_recipe_collection_queue.csv",
+      "version": "v0.3",
+      "quality_note": "A reviewable sampling plan derived from the uncertainty inventory. It is not observation data and must not update posterior probabilities."
+    },
+    {
+      "source_id": "SRC_10000RECIPE_PILOT_2026",
+      "source_type": "recipe_platform",
+      "title": "10000 Recipe public recipe pages: FoodMap pilot observations",
+      "url": "https://www.10000recipe.com/",
+      "quality_note": "Ten user-authored public recipe pages normalized only to FoodMap component IDs. The rows retain page URLs and author-level independence groups, use a low 0.35 weight, and remain pending_review until human verification. Recipe text and images are not copied into this repository."
+    },
+    {
       "source_id": "SRC_MFDS_FOOD_NUTRIENT_DB",
       "source_type": "official_food_database",
       "title": "MFDS Food Nutrient Database",
