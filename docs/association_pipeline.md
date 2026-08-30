@@ -16,6 +16,23 @@ Meal-log JSONL
 
 ## Output Tables
 
+### Representative component inference for composite foods
+
+Every recognized food mention can now carry `representative_components`. For an
+ambiguous composite food such as a generic sandwich, these are not a claim that
+the user ate a fixed recipe. They are population-level candidates with a role:
+`core`, `typical`, `optional`, or `variant`. Text such as "햄치즈 샌드위치" can
+promote a candidate to `explicit`; incompatible context such as "비건" can
+remove meat variants.
+
+The pipeline writes these as `HAS_REPRESENTATIVE_COMPONENT` relations. Their
+`evidence_type`, `inference_method`, `inference_version`, confidence, and source
+IDs distinguish them from confirmed reference annotations. The current grounded
+prior is stored in `data/v0.3/representative_component_priors.json`. It is
+combined with a small trainable Korean component language model documented in
+`docs/component_language_model.md`. The model ranks reviewed candidates; it is
+not an LLM-generated recipe or a nutrient-value estimate.
+
 | Output | Relationship represented | Why it is separate |
 | --- | --- | --- |
 | `meal_events` | Event -> time expression and consumption state | One sentence can contain several meal events. |
@@ -62,6 +79,6 @@ source records and a recorded parser version.
 4. Add the reviewed mapping with provenance to the reference tables.
 5. Add representative sentences to the frozen-split corpus and rerun evaluation.
 
-The current food vocabulary is sufficient only for the v0.1/v0.2 baseline. It
-is not expected to cover hundreds of real meal logs. Coverage reports and the
-review queue make expansion evidence-driven rather than speculative.
+The merged v0.1/v0.3 vocabulary now covers 80 reviewed food families, but it is
+still not expected to cover hundreds of real meal logs. Coverage reports and the
+review queue make later expansion evidence-driven rather than speculative.

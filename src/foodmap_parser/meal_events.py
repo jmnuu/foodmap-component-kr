@@ -8,8 +8,10 @@ to time expressions and extracts only details explicitly stated in the text.
 import re
 
 try:
+    from .component_inference import infer_representative_components
     from .parser import parse_food_log
 except ImportError:  # Allows `python meal_events.py` during early local use.
+    from component_inference import infer_representative_components
     from parser import parse_food_log
 
 
@@ -199,6 +201,9 @@ def _number_value(token):
 
 def _quantity_and_unit(food, text, foods):
     clause = _food_clause(text, food, foods)
+    # Search after the matched food name so a food such as "두유" is not
+    # mistaken for the Korean quantity word "두" (two).
+    clause = clause[len(food["raw_text"]):]
     number_pattern = "|".join(sorted(KOREAN_NUMBERS, key=len, reverse=True)) + r"|\d+"
     unit_pattern = "|".join(UNIT_NAMES)
 
@@ -244,7 +249,7 @@ def _modifiers(food, text, time_expression, foods):
         modifiers.append("spicy")
     if "작은" in context or "작은" in clause:
         modifiers.append("small")
-    if "치즈 없는" in context:
+    if "치즈 없는" in context or "치즈 없는" in clause:
         modifiers.append("without_cheese")
     if "새우 없는" in context:
         modifiers.append("without_shrimp")
@@ -278,6 +283,7 @@ def parse_meal_events(text):
             "foods": [],
         })
         quantity, unit = _quantity_and_unit(food, text, foods)
+        modifiers = _modifiers(food, text, time_expression, foods)
         event["foods"].append({
             "raw_text": food["raw_text"],
             "food_id": food["food_id"],
@@ -285,7 +291,12 @@ def parse_meal_events(text):
             "source_end": food["end"],
             "quantity": quantity,
             "unit": unit,
-            "modifiers": _modifiers(food, text, time_expression, foods),
+            "modifiers": modifiers,
+            "representative_components": infer_representative_components(
+                food,
+                text,
+                modifiers,
+            ),
         })
 
     events = sorted(grouped.values(), key=lambda event: (

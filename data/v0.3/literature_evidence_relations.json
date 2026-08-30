@@ -1,0 +1,109 @@
+{
+  "version": "v0.3",
+  "purpose": "Machine-readable literature evidence for FoodMap ontology and future association-study design. These rows are not individualized clinical rules or synthetic effect parameters.",
+  "relations": [
+    {
+      "evidence_id": "EVID001",
+      "source_id": "SRC_HUANG_SUGAR_2023",
+      "exposure_id": "added_sugar",
+      "exposure_type": "nutrient_or_added_ingredient",
+      "required_features": ["added_sugar_g", "portion_g", "food_source"],
+      "outcome_scope": ["cardiometabolic", "dental", "hepatic"],
+      "evidence_design": "umbrella_review",
+      "interpretation": "Keep added sugar distinct from other sugar exposures; record dose when nutrient data support it.",
+      "causal_claim_allowed": false
+    },
+    {
+      "evidence_id": "EVID002",
+      "source_id": "SRC_HUANG_SUGAR_2023",
+      "exposure_id": "fructose",
+      "exposure_type": "nutrient",
+      "required_features": ["fructose_g", "portion_g", "food_source"],
+      "outcome_scope": ["cardiometabolic", "cancer"],
+      "evidence_design": "umbrella_review",
+      "interpretation": "Do not merge fructose with added sugar or sugar-sweetened beverage exposure without a documented transformation.",
+      "causal_claim_allowed": false
+    },
+    {
+      "evidence_id": "EVID003",
+      "source_id": "SRC_SSB_UMBRELLA_2024",
+      "exposure_id": "sugar_sweetened_beverage",
+      "exposure_type": "food_or_beverage_category",
+      "required_features": ["beverage_type", "serving_ml", "added_sugar_g", "frequency"],
+      "outcome_scope": ["type_2_diabetes", "cardiovascular", "mental_health", "kidney_stone", "uric_acid"],
+      "evidence_design": "umbrella_review_observational",
+      "interpretation": "Model SSB as a food-category exposure, separately from nutrient grams, because the study evaluates the beverage pattern.",
+      "causal_claim_allowed": false
+    },
+    {
+      "evidence_id": "EVID004",
+      "source_id": "SRC_NAGHSHI_PROTEIN_2020",
+      "exposure_id": "protein_by_source",
+      "exposure_type": "nutrient_with_food_source",
+      "required_features": ["protein_g", "protein_source", "food_source"],
+      "allowed_values": {"protein_source": ["plant", "animal", "mixed", "unknown"]},
+      "outcome_scope": ["all_cause_mortality", "cardiovascular_mortality", "cancer_mortality"],
+      "evidence_design": "prospective_cohort_meta_analysis",
+      "interpretation": "Preserve plant and animal protein source as a feature even when total protein is known.",
+      "causal_claim_allowed": false
+    },
+    {
+      "evidence_id": "EVID005",
+      "source_id": "SRC_GODOS_DAIRY_2020",
+      "exposure_id": "dairy_product",
+      "exposure_type": "food_category_with_variant",
+      "required_features": ["dairy_product_type", "fat_content", "portion_g", "region"],
+      "allowed_values": {"dairy_product_type": ["milk", "yogurt", "cheese", "butter", "other", "unknown"]},
+      "outcome_scope": ["multiple_observational_health_outcomes"],
+      "evidence_design": "umbrella_review_observational",
+      "interpretation": "Do not collapse all dairy foods into one boolean. Product and context can change the observed association.",
+      "causal_claim_allowed": false
+    },
+    {
+      "evidence_id": "EVID006",
+      "source_id": "SRC_SODIUM_UMBRELLA_2025",
+      "exposure_id": "sodium",
+      "exposure_type": "nutrient",
+      "required_features": ["sodium_mg", "portion_g", "measurement_window"],
+      "outcome_scope": ["systolic_blood_pressure", "mortality", "major_cardiovascular_events"],
+      "required_instruments": ["validated_blood_pressure_measurement"],
+      "evidence_design": "umbrella_review",
+      "interpretation": "Use a dose-bearing sodium feature. Blood-pressure analysis requires a valid outcome measurement and a predeclared time window.",
+      "causal_claim_allowed": false
+    },
+    {
+      "evidence_id": "EVID007",
+      "source_id": "SRC_RAMEZANI_FIBER_2024",
+      "exposure_id": "dietary_fiber",
+      "exposure_type": "nutrient_with_type_and_source",
+      "required_features": ["fiber_g", "fiber_type", "food_source"],
+      "allowed_values": {"fiber_type": ["soluble", "insoluble", "total", "unknown"]},
+      "outcome_scope": ["all_cause_mortality", "cause_specific_mortality"],
+      "evidence_design": "prospective_cohort_meta_analysis",
+      "interpretation": "Store total grams as the common baseline, then preserve soluble or insoluble type and source when the food record supports it.",
+      "causal_claim_allowed": false
+    },
+    {
+      "evidence_id": "EVID008",
+      "source_id": "SRC_LANE_UPF_2024",
+      "exposure_id": "ultra_processed_food",
+      "exposure_type": "food_processing_classification",
+      "required_features": ["processing_classification", "classification_system", "portion_g", "frequency"],
+      "outcome_scope": ["metabolic", "cardiovascular", "mental_health", "sleep"],
+      "evidence_design": "umbrella_review_observational",
+      "interpretation": "Record the processing classification system and retain observational-study limitations in every downstream interpretation.",
+      "causal_claim_allowed": false
+    },
+    {
+      "evidence_id": "EVID009",
+      "source_id": "SRC_GBD_DIET_2019",
+      "exposure_id": "dietary_risk_priority",
+      "exposure_type": "ontology_prioritization",
+      "required_features": ["component_id", "dietary_risk_category"],
+      "outcome_scope": ["population_burden"],
+      "evidence_design": "global_burden_of_disease_analysis",
+      "interpretation": "Use high sodium, low whole grains, and low fruit as prioritization cues for ontology coverage, not personal effect-size parameters.",
+      "causal_claim_allowed": false
+    }
+  ]
+}

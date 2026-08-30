@@ -1,14 +1,11 @@
-import csv
-from pathlib import Path
-
-ROOT = Path(__file__).resolve().parents[2]
-DATA_DIR = ROOT / "data" / "v0.1"
+try:
+    from .reference_data import load_reference_csv
+except ImportError:  # Allows direct module execution during early local use.
+    from reference_data import load_reference_csv
 
 
 def load_csv(filename):
-    path = DATA_DIR / filename
-    with open(path, "r", encoding="utf-8") as f:
-        return list(csv.DictReader(f))
+    return load_reference_csv(filename)
 
 
 def main():

@@ -1,0 +1,27 @@
+component_id,component_name_en,component_name_ko,category,parent_id,description
+C069,chili_paste,고추장 또는 고추장 양념,ingredient,,고추장 기반 양념 성분
+C070,garlic,마늘,ingredient,,마늘 재료
+C071,green_onion,대파,ingredient,,대파 재료
+C072,mushroom,버섯,ingredient,,버섯 재료
+C073,tofu,두부,ingredient,,두부 재료
+C074,leafy_greens,쌈채소 또는 잎채소,ingredient_group,,상추 깻잎 등 잎채소 일반 범주
+C075,sesame_oil,참기름,ingredient,,참기름 재료
+C076,kimchi_ingredient,김치,ingredient,,김치 재료 또는 반찬
+C077,soybean_paste,된장,ingredient,,된장 또는 된장 양념
+C078,seaweed,미역 또는 해조류,ingredient,,미역 등 해조류
+C079,tuna,참치,ingredient,,참치 재료
+C080,potato,감자,ingredient,,감자 재료
+C081,cabbage,양배추,ingredient,,양배추 재료
+C082,perilla_leaf,깻잎,ingredient,,깻잎 재료
+C083,rice_cake,떡,ingredient,,떡 재료
+C084,bean_sprout,콩나물,ingredient,,콩나물 재료
+C085,squid,오징어,ingredient,,오징어 재료
+C086,beef_rib,갈비,ingredient,,소갈비 재료
+C087,pork_belly,삼겹살,ingredient,,삼겹살 재료
+C088,whole_wheat,통밀,ingredient,,통밀 재료
+C089,oat,귀리,ingredient,,귀리 재료
+C090,nuts,견과류,ingredient_group,,견과류 일반 범주
+C091,soy_milk,두유,ingredient,,두유 재료
+C092,fruit_juice,과일주스,ingredient,,과일주스 재료
+C093,energy_drink,에너지음료,ingredient,,에너지드링크 재료
+C094,black_bean_sauce,짜장 소스,ingredient,,검은콩 기반 짜장 소스

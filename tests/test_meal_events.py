@@ -44,10 +44,41 @@ class MealEventParserTests(unittest.TestCase):
 
         self.assertEqual(result["events"], [])
 
-    def test_does_not_extract_rice_from_unknown_compound_food(self):
+    def test_recognizes_new_compound_food_without_extracting_rice_alias(self):
         result = parse_meal_events("저녁에 비빔밥 먹었어.")
 
-        self.assertEqual(result["events"], [])
+        foods = result["events"][0]["foods"]
+        self.assertEqual([food["food_id"] for food in foods], ["F0031"])
+        self.assertNotIn("F0010", [food["food_id"] for food in foods])
+
+    def test_does_not_mistake_duyu_for_the_quantity_word_two(self):
+        food = parse_meal_events("아침에 두유 먹었어.")["events"][0]["foods"][0]
+
+        self.assertEqual(food["food_id"], "F0067")
+        self.assertIsNone(food["quantity"])
+
+    def test_adds_role_aware_representative_components_for_generic_sandwich(self):
+        result = parse_meal_events("점심에 샌드위치 먹었어.")
+        components = result["events"][0]["foods"][0]["representative_components"]
+        by_id = {component["component_id"]: component for component in components}
+
+        self.assertEqual(by_id["C060"]["role"], "core")
+        self.assertEqual(by_id["C065"]["role"], "typical")
+        self.assertEqual(by_id["C067"]["role"], "variant")
+        self.assertIn("language_model", by_id["C067"]["inference_method"])
+        self.assertIn("model_probability", by_id["C060"])
+
+    def test_promotes_explicit_sandwich_variant_and_removes_meat_for_vegan_context(self):
+        result = parse_meal_events("점심에 비건 햄치즈 샌드위치 먹었어.")
+        foods = result["events"][0]["foods"]
+        self.assertEqual([food["food_id"] for food in foods], ["F0018"])
+        components = foods[0]["representative_components"]
+        by_id = {component["component_id"]: component for component in components}
+
+        self.assertEqual(by_id["C059"]["role"], "explicit")
+        self.assertNotIn("C067", by_id)
+        self.assertNotIn("C044", by_id)
+        self.assertEqual(by_id["C048"]["role"], "typical")
 
 
 if __name__ == "__main__":

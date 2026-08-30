@@ -63,3 +63,7 @@ C061,pasta_noodle,파스타면,ingredient,,파스타 면
 C062,mala_spice,마라향신료,ingredient,,마라탕 마라샹궈 등 향신료 기반 성분
 C063,soup_broth,육수,ingredient,,국물 또는 육수 기반
 C064,white_rice,흰쌀,ingredient,,흰쌀 기반 재료
+C065,protein_filling,단백질 속재료,ingredient_group,,샌드위치와 랩 등에 들어가는 단백질 중심 속재료의 일반 범주
+C066,sauce_or_spread,소스 또는 스프레드,ingredient_group,,샌드위치 드레싱 마요네즈 스프레드 등의 일반 범주
+C067,processed_meat,가공육,ingredient_group,,햄 베이컨 소시지 등 가공 육류 기반 재료
+C068,egg,계란,ingredient,,계란 또는 에그 기반 재료

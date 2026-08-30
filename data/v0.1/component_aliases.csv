@@ -10,6 +10,10 @@ alias,component_id,component_name_en,confidence,notes
 생선,C046,fish,0.90,명시적 생선 언급
 연어,C046,fish,0.85,생선류로 임시 정규화
 치즈,C059,cheese,0.95,명시적 치즈 언급
+햄,C067,processed_meat,0.95,명시적 햄 언급
+베이컨,C067,processed_meat,0.95,명시적 베이컨 언급
+계란,C068,egg,0.95,명시적 계란 언급
+에그,C068,egg,0.90,명시적 에그 언급
 양상추,C048,lettuce,0.95,명시적 양상추 언급
 양파,C049,onion,0.95,명시적 양파 언급
 오이,C050,cucumber,0.95,명시적 오이 언급

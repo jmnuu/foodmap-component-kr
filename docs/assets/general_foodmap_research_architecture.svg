@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1040" viewBox="0 0 1600 1040" role="img" aria-labelledby="title desc">
+  <title id="title">General FoodMap research architecture</title>
+  <desc id="desc">A research diagram showing literature evidence synthesis, meal-text and wearable extraction, and uncertainty-aware individual FoodMap updates.</desc>
+  <defs>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1.5" fill="#d5dad2"/>
+    </pattern>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="6" stdDeviation="7" flood-color="#1e2f28" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto">
+      <path d="M0,0 L10,5.5 L0,11 Z" fill="#557166"/>
+    </marker>
+    <style>
+      .title { font: 700 34px 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; fill: #19352b; }
+      .section { font: 700 22px 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; fill: #2f5a49; letter-spacing: .4px; }
+      .box-title { font: 700 25px 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; fill: #173228; }
+      .box-text { font: 400 19px 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; fill: #3d554b; }
+      .small { font: 400 17px 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; fill: #5b6d64; }
+      .label { font: 600 18px 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; fill: #426153; }
+      .box { stroke: #a7bdb0; stroke-width: 2.2; rx: 18; filter: url(#shadow); }
+      .flow { stroke: #557166; stroke-width: 4; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #8ba59a; stroke-width: 3; fill: none; stroke-dasharray: 9 9; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1040" fill="#f8faf6"/>
+  <rect width="1600" height="1040" fill="url(#dots)" opacity="0.76"/>
+  <rect x="48" y="38" width="1504" height="91" rx="20" fill="#e8f1e9"/>
+  <text x="88" y="94" class="title">FoodMap 연구 구조: 문헌 근거를 일반 지도에 쌓고, 개인 관측으로 조심스럽게 보정하기</text>
+
+  <text x="78" y="181" class="section">A. General FoodMap: 문헌 근거 종합</text>
+  <rect x="78" y="209" width="330" height="175" class="box" fill="#fffdf8"/>
+  <text x="111" y="262" class="box-title">논문·메타분석</text>
+  <text x="111" y="300" class="box-text">노출 · 결과 · 효과크기</text>
+  <text x="111" y="329" class="box-text">대상 집단 · 연구 설계</text>
+  <text x="111" y="358" class="box-text">교란요인 · 출처 위치</text>
+
+  <path d="M408 297 H500" class="flow"/>
+  <text x="423" y="268" class="label">구조화 추출</text>
+
+  <rect x="500" y="209" width="435" height="175" class="box" fill="#f4f9ee"/>
+  <text x="535" y="262" class="box-title">근거 호환성·품질 평가</text>
+  <text x="535" y="300" class="box-text">같은 노출 정의와 결과만 묶기</text>
+  <text x="535" y="329" class="box-text">효과 단위·집단·설계·이질성 확인</text>
+  <text x="535" y="358" class="box-text">상충 근거와 불확실성 보존</text>
+
+  <path d="M935 297 H1027" class="flow"/>
+  <text x="946" y="268" class="label">근거 종합</text>
+
+  <rect x="1027" y="185" width="470" height="223" class="box" fill="#dceee4" stroke="#6d967f"/>
+  <text x="1065" y="244" class="box-title">General FoodMap</text>
+  <text x="1065" y="282" class="box-text">노출 → 결과 관계 + 근거 강도</text>
+  <text x="1065" y="311" class="box-text">용량 · 식품 원천 · 적용 집단</text>
+  <text x="1065" y="340" class="box-text">연구 설계 · 출처 · 불확실성</text>
+  <text x="1065" y="376" class="small">개인에게 단정하는 임상 규칙이 아님</text>
+
+  <line x1="78" y1="456" x2="1510" y2="456" class="dash"/>
+  <text x="78" y="514" class="section">B. 개인 식사·웨어러블 관측 정렬</text>
+
+  <rect x="78" y="548" width="330" height="178" class="box" fill="#fffdf8"/>
+  <text x="111" y="601" class="box-title">텍스트 식사 기록</text>
+  <text x="111" y="639" class="box-text">음식 · 시점 · 양 · 상태</text>
+  <text x="111" y="668" class="box-text">원문 span · 추출 신뢰도</text>
+  <text x="111" y="697" class="box-text">사전 미등록 후보</text>
+
+  <path d="M408 637 H500" class="flow"/>
+  <text x="423" y="608" class="label">MealEvent 추출</text>
+
+  <rect x="500" y="548" width="435" height="178" class="box" fill="#f4f9ee"/>
+  <text x="535" y="601" class="box-title">음식·성분·노출 특징</text>
+  <text x="535" y="639" class="box-text">영양소 g · 식품 원천 · 가공도</text>
+  <text x="535" y="668" class="box-text">제품 유형 · 조리법 · 섭취량</text>
+  <text x="535" y="697" class="box-text">모든 값의 출처와 버전</text>
+
+  <path d="M935 637 H1027" class="flow"/>
+  <text x="946" y="608" class="label">시간 정렬</text>
+
+  <rect x="1027" y="548" width="470" height="178" class="box" fill="#edf5fa" stroke="#7ca4bd"/>
+  <text x="1065" y="601" class="box-title">결과별 웨어러블 관측 창</text>
+  <text x="1065" y="639" class="box-text">혈당 · 혈압 · 수면은 창을 분리</text>
+  <text x="1065" y="668" class="box-text">기기 · 결측 · 활동 · 약물 기록</text>
+  <text x="1065" y="697" class="small">모든 관계에 일률적인 24시간을 적용하지 않음</text>
+
+  <path d="M1262 408 V809" class="flow"/>
+  <text x="1284" y="502" class="label">인구 근거를 사전값으로 사용</text>
+
+  <path d="M1262 726 V809" class="flow"/>
+  <text x="1284" y="773" class="label">개인 관측을 보정값으로 사용</text>
+
+  <rect x="380" y="809" width="880" height="164" class="box" fill="#dceee4" stroke="#4f8067"/>
+  <text x="423" y="864" class="box-title">개인별 FoodMap: 불확실성을 포함한 개인화</text>
+  <text x="423" y="902" class="box-text">General FoodMap + 충분한 개인 관측 + 교란요인 보정 → 시간적 연관성 추정</text>
+  <text x="423" y="939" class="small">관측이 적으면 일반 근거에 가깝게 유지하고, 관측이 쌓일 때만 개인 지도 비중을 높임</text>
+</svg>

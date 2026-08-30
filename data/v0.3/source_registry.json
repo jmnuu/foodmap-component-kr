@@ -10,6 +10,14 @@
       "quality_note": "Legacy curated baseline. Individual annotations retain evidence_type and notes but are not all externally cited."
     },
     {
+      "source_id": "SRC_FOODMAP_CURATED_V03_EXPANSION",
+      "source_type": "internal_curated_dataset",
+      "title": "FoodMap v0.3 Korean food dictionary expansion",
+      "locator": "data/v0.3/*_extension.csv",
+      "version": "v0.3",
+      "quality_note": "Fifty additional Korean foods, aliases, components, and reviewed probability annotations. This is an auditable coverage expansion, not an independent population recipe-frequency dataset."
+    },
+    {
       "source_id": "SRC_MFDS_FOOD_NUTRIENT_DB",
       "source_type": "official_food_database",
       "title": "MFDS Food Nutrient Database",
@@ -43,6 +51,76 @@
       "citation": "The Effects of Sodium Reduction and the DASH Diet on Ambulatory Blood Pressure. 2026.",
       "url": "https://pubmed.ncbi.nlm.nih.gov/42429484/",
       "quality_note": "Supports the direction of the synthetic sodium-blood-pressure prior; a valid blood-pressure measurement is required."
+    },
+    {
+      "source_id": "SRC_HUANG_SUGAR_2023",
+      "source_type": "umbrella_review",
+      "citation": "Huang Y, et al. Dietary sugar consumption and health: umbrella review. BMJ. 2023;381:e071609.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/37019448/",
+      "quality_note": "Separates dietary-sugar exposures such as sugar-sweetened beverages, added sugar, and fructose. Use exposure-specific rows rather than one generic sugar effect."
+    },
+    {
+      "source_id": "SRC_SSB_UMBRELLA_2024",
+      "source_type": "umbrella_review",
+      "citation": "Sugar-Sweetened Beverages and Adverse Human Health Outcomes: An Umbrella Review of Meta-Analyses of Observational Studies. 2024.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39207876/",
+      "quality_note": "Treat sugar-sweetened beverages as a separate exposure from total sugar. Observational evidence supports association modeling, not individual causal predictions."
+    },
+    {
+      "source_id": "SRC_NAGHSHI_PROTEIN_2020",
+      "source_type": "systematic_review_meta_analysis",
+      "citation": "Naghshi S, et al. Dietary intake of total, animal, and plant proteins and risk of all cause, cardiovascular, and cancer mortality. BMJ. 2020;370:m2412.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/32699048/",
+      "quality_note": "Retain total, animal, and plant protein as distinct exposure or food-source features; do not reduce them to protein_rich alone."
+    },
+    {
+      "source_id": "SRC_GODOS_DAIRY_2020",
+      "source_type": "umbrella_review",
+      "citation": "Godos J, et al. Dairy foods and health: an umbrella review of observational studies. International Journal of Food Sciences and Nutrition. 2020;71(2):138-151.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/31199182/",
+      "quality_note": "Model dairy product type and fat content separately where available. Region, product definition, and dietary confounding limit a single dairy-wide conclusion."
+    },
+    {
+      "source_id": "SRC_SODIUM_UMBRELLA_2025",
+      "source_type": "umbrella_review",
+      "citation": "Impact of sodium intake on blood pressure, mortality and major cardiovascular events: an umbrella review of systematic reviews and meta-analyses. 2025.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39624982/",
+      "quality_note": "Sodium should be stored as a dose-bearing nutrient feature and paired with measurement-aware blood-pressure outcomes, not only as a high_sodium tag."
+    },
+    {
+      "source_id": "SRC_RAMEZANI_FIBER_2024",
+      "source_type": "systematic_review_meta_analysis",
+      "citation": "Ramezani F, et al. Dietary fiber intake and all-cause and cause-specific mortality: An updated systematic review and meta-analysis of prospective cohort studies. Clinical Nutrition. 2024;43(1):65-83.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38011755/",
+      "quality_note": "Store total fiber grams alongside fiber type and food source when those attributes are available; a fiber_rich tag alone loses important exposure detail."
+    },
+    {
+      "source_id": "SRC_LANE_UPF_2024",
+      "source_type": "umbrella_review",
+      "citation": "Lane MM, et al. Ultra-processed food exposure and adverse health outcomes: umbrella review of epidemiological meta-analyses. BMJ. 2024;384:e077310.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38418082/",
+      "quality_note": "Ultra-processed food is a processing classification. Preserve it as an exposure feature with observational-evidence limitations; do not encode it as a causal clinical effect."
+    },
+    {
+      "source_id": "SRC_GBD_DIET_2019",
+      "source_type": "global_burden_of_disease_analysis",
+      "citation": "GBD 2017 Diet Collaborators. Health effects of dietary risks in 195 countries, 1990-2017. Lancet. 2019;393:1958-1972.",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/30954305/",
+      "quality_note": "Use to prioritize dietary-risk concepts in the ontology, not to assign person-level effect sizes."
+    },
+    {
+      "source_id": "SRC_FOODMAP_COMPONENT_PRIORS_V03",
+      "source_type": "internal_curated_component_prior",
+      "title": "FoodMap v0.3 representative component priors",
+      "locator": "data/v0.3/representative_component_priors.json",
+      "quality_note": "Records population-level representative components for ambiguous composite foods. It is a reviewable prior for parser output, not a recipe database or nutrient-value source."
+    },
+    {
+      "source_id": "SRC_COMPONENT_LANGUAGE_TRAINING_V03",
+      "source_type": "human_curated_training_dataset",
+      "title": "FoodMap v0.3 Korean composite-food component training examples",
+      "locator": "data/v0.3/component_language_model_training.jsonl",
+      "quality_note": "Fourteen human-curated seed examples for the trainable text classifier. The model also uses separately marked weak labels derived from SRC_FOODMAP_CURATED_V01 and SRC_FOODMAP_CURATED_V03_EXPANSION; neither source may be used as its own evaluation set."
     },
     {
       "source_id": "SRC_SYNTHETIC_GENERATOR_V03",

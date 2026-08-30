@@ -8,11 +8,15 @@ from collections import Counter
 from pathlib import Path
 
 try:
+    from .component_inference import INFERENCE_VERSION
     from .meal_events import parse_meal_events
     from .parser import build_component_lookup, parse_food_log
+    from .reference_data import load_reference_csv
 except ImportError:
+    from component_inference import INFERENCE_VERSION
     from meal_events import parse_meal_events
     from parser import build_component_lookup, parse_food_log
+    from reference_data import load_reference_csv
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -56,12 +60,10 @@ def write_jsonl(path, rows):
 
 
 def load_component_metadata():
-    path = DATA_DIR / "v0.1" / "component_vocab.csv"
-    with open(path, "r", encoding="utf-8") as file:
-        return {
-            row["component_name_en"]: row
-            for row in csv.DictReader(file)
-        }
+    return {
+        row["component_name_en"]: row
+        for row in load_reference_csv("component_vocab.csv")
+    }
 
 
 def clean_candidate(token):
@@ -131,6 +133,7 @@ def build_pipeline(records):
     relations = []
     unresolved_candidates = []
     component_counts = Counter()
+    representative_component_counts = Counter()
     source_ledger = []
 
     for record in records:
@@ -199,6 +202,7 @@ def build_pipeline(records):
                     "quantity": food["quantity"],
                     "unit": food["unit"],
                     "modifiers": food["modifiers"],
+                    "representative_components": food["representative_components"],
                     "parser_version": PARSER_VERSION,
                     "source_ids": [input_source_id],
                 }
@@ -283,6 +287,34 @@ def build_pipeline(records):
                         "parser_version": PARSER_VERSION,
                     })
 
+                for component in food["representative_components"]:
+                    representative_component_counts[component["component_id"]] += 1
+                    relations.append({
+                        "relation_id": f"{food_mention_id}:P{component['component_id']}",
+                        "subject_type": "food_mention",
+                        "subject_id": food_mention_id,
+                        "relation_type": "HAS_REPRESENTATIVE_COMPONENT",
+                        "object_type": "component",
+                        "object_id": component["component_id"],
+                        "object_value": component["component_name_en"],
+                        "component_role": component["role"],
+                        "evidence_type": "text_supported_component_inference"
+                        if component["inference_method"] != "population_prior"
+                        else "population_component_prior",
+                        "confidence": component["confidence"],
+                        "source_record_id": source_record_id,
+                        "source_ids": [input_source_id, *component["source_ids"]],
+                        "source_start": food["source_start"],
+                        "source_end": food["source_end"],
+                        "parser_version": PARSER_VERSION,
+                        "inference_version": INFERENCE_VERSION,
+                        "inference_method": component["inference_method"],
+                        "model_probability": component.get("model_probability"),
+                        "model_name": component.get("model_name"),
+                        "model_version": component.get("model_version"),
+                        "training_source_id": component.get("training_source_id"),
+                    })
+
     coverage_report = {
         "input_records": len(records),
         "meal_events": len(meal_events),
@@ -292,6 +324,8 @@ def build_pipeline(records):
         "unique_food_ids_observed": len({row["food_id"] for row in meal_event_foods}),
         "unique_components_linked": len(component_counts),
         "component_mention_counts": dict(sorted(component_counts.items())),
+        "representative_component_relation_count": sum(representative_component_counts.values()),
+        "representative_component_mention_counts": dict(sorted(representative_component_counts.items())),
         "source_record_count": len(source_ledger),
         "parser_version": PARSER_VERSION,
     }

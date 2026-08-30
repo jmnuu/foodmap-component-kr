@@ -1,0 +1,51 @@
+food_id,normalized_food_ko,normalized_food_en,food_category,default_processing_level,default_cooking_method,notes
+F0031,비빔밥,bibimbap,mixed_meal,processed,mixed,밥과 여러 고명 및 양념이 섞이는 음식
+F0032,된장찌개,doenjang stew,stew,processed,boiled,된장과 채소 또는 두부가 들어가는 찌개
+F0033,순두부찌개,soft tofu stew,stew,processed,boiled,순두부와 국물 재료가 섞이는 찌개
+F0034,부대찌개,army stew,stew,ultra_processed,boiled,가공육과 국물 재료가 섞이는 찌개
+F0035,미역국,seaweed soup,soup,minimally_processed,boiled,미역과 국물 기반 음식
+F0036,갈비탕,galbitang,soup,processed,boiled,갈비와 육수 기반 탕
+F0037,설렁탕,seolleongtang,soup,processed,boiled,소고기 육수 기반 탕
+F0038,삼겹살,pork belly,meat,minimally_processed,grilled,돼지고기 구이 중심 음식
+F0039,불고기,bulgogi,meat,processed,grilled,양념 고기 중심 음식
+F0040,제육볶음,spicy pork stir fry,meat,processed,stir_fried,돼지고기와 매운 양념 중심 음식
+F0041,닭갈비,dakgalbi,meat,processed,stir_fried,닭고기와 채소 및 양념 혼합 음식
+F0042,샤브샤브,shabu shabu,mixed_meal,processed,boiled,육수와 고기 채소를 선택하는 전골형 음식
+F0043,생선구이,grilled fish,seafood,minimally_processed,grilled,생선 구이 일반 표현
+F0044,연어구이,grilled salmon,seafood,minimally_processed,grilled,연어 구이 음식
+F0045,고등어구이,grilled mackerel,seafood,minimally_processed,grilled,고등어 구이 음식
+F0046,오징어볶음,stir fried squid,seafood,processed,stir_fried,오징어와 양념 볶음 음식
+F0047,보쌈,bossam,meat,processed,boiled,삶은 돼지고기와 곁들임 채소 음식
+F0048,족발,jokbal,meat,processed,boiled,조리된 돼지고기 음식
+F0049,잡채,japchae,mixed_meal,processed,stir_fried,당면과 채소 및 고기 혼합 음식
+F0050,카레,curry,mixed_meal,processed,boiled,밥과 카레 소스 및 재료 혼합 음식
+F0051,오므라이스,omelet rice,mixed_meal,processed,fried,밥과 계란 중심 혼합 음식
+F0052,돈까스,pork cutlet,meat,processed,fried,돼지고기 튀김 음식
+F0053,짜장면,black bean noodles,noodles,processed,boiled,면과 짜장 소스 중심 음식
+F0054,짬뽕,spicy seafood noodles,noodles,processed,boiled,매운 국물과 면 중심 음식
+F0055,냉면,naengmyeon,noodles,processed,cold,차가운 육수 또는 비빔 면 음식
+F0056,우동,udon,noodles,processed,boiled,면과 국물 중심 음식
+F0057,칼국수,kalguksu,noodles,processed,boiled,밀가루 면과 국물 중심 음식
+F0058,비빔면,spicy mixed noodles,noodles,processed,mixed,면과 매운 양념 중심 음식
+F0059,현미밥,brown rice,rice,minimally_processed,boiled,현미 기반 밥
+F0060,볶음밥,fried rice,rice,processed,fried,밥과 재료를 볶는 혼합 음식
+F0061,김치,kimchi,side_dish,processed,fermented,발효 채소 반찬
+F0062,두부,tofu,side_dish,minimally_processed,mixed,대두 기반 식품
+F0063,계란,egg,protein,minimally_processed,mixed,계란 단독 또는 재료 표현
+F0064,닭가슴살,chicken breast,meat,minimally_processed,grilled,닭고기 부위 중심 음식
+F0065,우유,milk,dairy,processed,beverage,일반 우유 기준
+F0066,치즈,cheese,dairy,processed,cold,치즈 단독 또는 재료 표현
+F0067,두유,soy milk,beverage,processed,beverage,대두 기반 음료
+F0068,오트밀,oatmeal,grain,minimally_processed,boiled,귀리 기반 죽 또는 시리얼
+F0069,통밀빵,whole wheat bread,bread,processed,baked,통밀 기반 빵
+F0070,견과류,nuts,snack,minimally_processed,raw,견과류 일반 표현
+F0071,상추,lettuce,vegetable,minimally_processed,raw,쌈 또는 잎채소 표현
+F0072,깻잎,perilla leaf,vegetable,minimally_processed,raw,깻잎 채소 표현
+F0073,마늘,garlic,vegetable,minimally_processed,raw,마늘 재료 표현
+F0074,버섯,mushroom,vegetable,minimally_processed,mixed,버섯 재료 표현
+F0075,콩나물,bean sprout,vegetable,minimally_processed,boiled,콩나물 재료 표현
+F0076,에너지드링크,energy drink,beverage,ultra_processed,beverage,카페인 또는 당류 함유 가능 음료
+F0077,맥주,beer,beverage,processed,beverage,알코올 음료
+F0078,소주,soju,beverage,processed,beverage,증류 알코올 음료
+F0079,과일주스,fruit juice,beverage,processed,beverage,과일 기반 주스 일반 표현
+F0080,탄산수,sparkling water,beverage,processed,beverage,무가당 탄산수 기준

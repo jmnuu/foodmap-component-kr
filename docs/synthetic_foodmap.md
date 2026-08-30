@@ -67,8 +67,8 @@ Every generated record is marked `data_origin: synthetic`.
 
 ## Food Dictionary Strategy
 
-The current 30-food reference table is a parser demonstration, not a production
-food dictionary. Expand it using three distinct layers:
+The current 80-food reference table is a reviewed coverage expansion, not a
+production-complete food dictionary. Expand it using three distinct layers:
 
 | Layer | Source and purpose |
 | --- | --- |

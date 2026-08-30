@@ -1,0 +1,206 @@
+food_id,component_id,status,confidence,evidence_type,notes,version
+F0031,C031,confirmed,0.85,food_base,비빔밥은 밥 기반 혼합 음식,v0.3
+F0031,C037,confirmed,0.95,food_structure,여러 고명과 양념이 섞이는 혼합식,v0.3
+F0031,C035,possible,0.70,food_variant,채소 고명 포함 가능성,v0.3
+F0031,C068,possible,0.55,food_variant,계란 고명 포함 가능성,v0.3
+F0031,C030,possible,0.55,food_variant,콩나물이나 소스의 대두 가능성,v0.3
+F0031,C069,possible,0.60,food_variant,고추장 양념 포함 가능성,v0.3
+F0032,C077,confirmed,0.95,ingredient,된장 기반 찌개,v0.3
+F0032,C015,confirmed,0.90,cooking_method,국물 기반 찌개,v0.3
+F0032,C005,possible,0.75,ingredient,된장과 국물로 나트륨 가능성,v0.3
+F0032,C073,possible,0.60,food_variant,두부 포함 가능성,v0.3
+F0032,C030,possible,0.80,ingredient,된장 기반 대두 가능성,v0.3
+F0033,C073,confirmed,0.95,ingredient,순두부가 중심 재료,v0.3
+F0033,C030,confirmed,0.90,ingredient,두부 기반 대두 가능성,v0.3
+F0033,C015,confirmed,0.90,cooking_method,국물 기반 찌개,v0.3
+F0033,C005,possible,0.75,ingredient,국물과 양념의 나트륨 가능성,v0.3
+F0033,C011,possible,0.70,food_variant,매운 양념 변형 가능성,v0.3
+F0034,C015,confirmed,0.90,cooking_method,국물 기반 찌개,v0.3
+F0034,C005,confirmed,0.90,ingredient,국물과 가공 재료의 나트륨 가능성,v0.3
+F0034,C018,confirmed,0.85,processing,가공육과 가공 재료 포함 가능성,v0.3
+F0034,C067,possible,0.70,food_variant,햄이나 소시지 포함 가능성,v0.3
+F0034,C034,possible,0.65,food_variant,육류 재료 포함 가능성,v0.3
+F0035,C078,confirmed,0.95,ingredient,미역이 중심 재료,v0.3
+F0035,C015,confirmed,0.90,cooking_method,국물 기반 음식,v0.3
+F0035,C004,possible,0.55,ingredient,해조류 기반 식이섬유 가능성,v0.3
+F0035,C005,possible,0.50,food_variant,간 조절에 따른 나트륨 가능성,v0.3
+F0036,C086,confirmed,0.85,ingredient,갈비가 중심 재료,v0.3
+F0036,C063,confirmed,0.90,ingredient,육수 기반 탕,v0.3
+F0036,C015,confirmed,0.90,cooking_method,국물 기반 음식,v0.3
+F0036,C005,possible,0.65,food_variant,국물의 나트륨 가능성,v0.3
+F0036,C034,possible,0.75,food_base,육류 중심 음식,v0.3
+F0037,C063,confirmed,0.95,ingredient,소고기 육수 기반 탕,v0.3
+F0037,C015,confirmed,0.95,cooking_method,국물 기반 음식,v0.3
+F0037,C034,possible,0.60,food_base,소고기 재료 중심 가능성,v0.3
+F0037,C005,possible,0.65,food_variant,국물의 나트륨 가능성,v0.3
+F0038,C087,confirmed,0.95,ingredient,삼겹살이 중심 재료,v0.3
+F0038,C043,confirmed,0.95,food_base,돼지고기 기반 음식,v0.3
+F0038,C013,confirmed,0.95,cooking_method,구이 조리 방식,v0.3
+F0038,C006,possible,0.80,nutrient,부위 특성상 고지방 가능성,v0.3
+F0038,C074,possible,0.55,food_variant,쌈채소 곁들임 가능성,v0.3
+F0039,C069,confirmed,0.80,ingredient,양념 불고기에서 고추장 변형 가능성,v0.3
+F0039,C013,confirmed,0.85,cooking_method,구이 조리 방식,v0.3
+F0039,C034,confirmed,0.90,food_base,고기 중심 음식,v0.3
+F0039,C042,possible,0.55,food_variant,소고기 불고기 가능성,v0.3
+F0039,C043,possible,0.55,food_variant,돼지고기 불고기 가능성,v0.3
+F0039,C006,possible,0.65,food_variant,고기 부위와 양념에 따른 지방 가능성,v0.3
+F0040,C043,confirmed,0.95,food_base,제육은 돼지고기 중심 음식,v0.3
+F0040,C069,confirmed,0.90,ingredient,고추장 양념 중심 음식,v0.3
+F0040,C011,confirmed,0.90,ingredient,매운 양념 기반,v0.3
+F0040,C070,possible,0.70,food_variant,마늘 양념 포함 가능성,v0.3
+F0040,C071,possible,0.65,food_variant,대파 포함 가능성,v0.3
+F0040,C006,possible,0.65,food_variant,고기 부위와 조리유에 따른 지방 가능성,v0.3
+F0041,C044,confirmed,0.95,food_base,닭고기 중심 음식,v0.3
+F0041,C069,confirmed,0.80,ingredient,고추장 계열 양념 가능성,v0.3
+F0041,C011,confirmed,0.90,ingredient,매운 양념 기반,v0.3
+F0041,C071,possible,0.65,food_variant,대파 등 채소 포함 가능성,v0.3
+F0041,C083,possible,0.45,food_variant,떡 사리 포함 가능성,v0.3
+F0042,C063,confirmed,0.90,ingredient,육수 기반 음식,v0.3
+F0042,C015,confirmed,0.90,cooking_method,국물에 재료를 익히는 음식,v0.3
+F0042,C074,confirmed,0.80,food_structure,잎채소나 채소가 대표적 구성요소,v0.3
+F0042,C065,confirmed,0.75,food_structure,고기나 두부 등 단백질 재료 선택 가능,v0.3
+F0042,C072,possible,0.60,food_variant,버섯 포함 가능성,v0.3
+F0042,C032,possible,0.45,food_variant,면 사리 포함 가능성,v0.3
+F0043,C046,confirmed,0.95,food_base,생선 중심 음식,v0.3
+F0043,C013,confirmed,0.95,cooking_method,구이 조리 방식,v0.3
+F0043,C006,possible,0.55,food_variant,생선 종류와 조리유에 따른 지방 가능성,v0.3
+F0043,C005,possible,0.50,food_variant,간과 양념에 따른 나트륨 가능성,v0.3
+F0044,C046,confirmed,0.95,food_base,연어는 생선 재료,v0.3
+F0044,C013,confirmed,0.95,cooking_method,구이 조리 방식,v0.3
+F0044,C006,possible,0.65,nutrient,생선 부위 특성상 지방 가능성,v0.3
+F0045,C046,confirmed,0.95,food_base,고등어는 생선 재료,v0.3
+F0045,C013,confirmed,0.95,cooking_method,구이 조리 방식,v0.3
+F0045,C006,possible,0.70,nutrient,생선 부위 특성상 지방 가능성,v0.3
+F0046,C085,confirmed,0.95,ingredient,오징어가 중심 재료,v0.3
+F0046,C069,confirmed,0.85,ingredient,고추장 양념 가능성,v0.3
+F0046,C011,confirmed,0.90,ingredient,매운 양념 기반,v0.3
+F0046,C071,possible,0.65,food_variant,대파 포함 가능성,v0.3
+F0046,C006,possible,0.55,food_variant,조리유에 따른 지방 가능성,v0.3
+F0047,C043,confirmed,0.85,food_base,보쌈은 돼지고기 중심 음식,v0.3
+F0047,C063,possible,0.70,cooking_method,삶는 과정에서 육수 사용 가능성,v0.3
+F0047,C074,possible,0.55,food_variant,쌈채소 곁들임 가능성,v0.3
+F0047,C005,possible,0.60,food_variant,새우젓 또는 양념의 나트륨 가능성,v0.3
+F0048,C043,confirmed,0.80,food_base,족발은 돼지고기 중심 음식,v0.3
+F0048,C005,possible,0.65,food_variant,양념과 조리 과정의 나트륨 가능성,v0.3
+F0048,C006,possible,0.70,nutrient,부위 특성상 지방 가능성,v0.3
+F0049,C032,confirmed,0.90,food_base,당면 기반 면 음식,v0.3
+F0049,C037,confirmed,0.85,food_structure,채소와 고기 등이 섞이는 혼합식,v0.3
+F0049,C072,possible,0.55,food_variant,버섯 포함 가능성,v0.3
+F0049,C074,possible,0.60,food_variant,시금치 등 채소 포함 가능성,v0.3
+F0049,C018,confirmed,0.80,processing,조리된 음식,v0.3
+F0050,C031,confirmed,0.75,food_base,카레라이스는 밥 기반 가능성,v0.3
+F0050,C037,confirmed,0.90,food_structure,소스와 여러 재료가 섞이는 혼합식,v0.3
+F0050,C080,possible,0.70,food_variant,감자 포함 가능성,v0.3
+F0050,C069,possible,0.60,food_variant,매운 카레 양념 가능성,v0.3
+F0050,C006,possible,0.55,food_variant,조리유 또는 루에 따른 지방 가능성,v0.3
+F0051,C031,confirmed,0.90,food_base,밥 기반 혼합 음식,v0.3
+F0051,C068,confirmed,0.90,ingredient,계란이 중심 재료,v0.3
+F0051,C037,confirmed,0.90,food_structure,밥과 계란 및 속재료 혼합식,v0.3
+F0051,C006,possible,0.55,food_variant,조리유 또는 소스에 따른 지방 가능성,v0.3
+F0052,C043,confirmed,0.75,food_base,돈까스는 돼지고기 기반,v0.3
+F0052,C012,confirmed,0.95,cooking_method,튀김 조리 방식,v0.3
+F0052,C006,confirmed,0.80,nutrient,튀김 음식으로 고지방 가능성,v0.3
+F0052,C033,possible,0.55,food_variant,빵가루 등 밀 기반 재료 가능성,v0.3
+F0053,C032,confirmed,0.90,food_base,면 기반 음식,v0.3
+F0053,C094,confirmed,0.95,ingredient,짜장 소스 중심 음식,v0.3
+F0053,C018,confirmed,0.80,processing,조리된 소스와 면 음식,v0.3
+F0053,C005,possible,0.60,food_variant,소스의 나트륨 가능성,v0.3
+F0054,C032,confirmed,0.90,food_base,면 기반 음식,v0.3
+F0054,C063,confirmed,0.80,ingredient,국물 기반 음식,v0.3
+F0054,C011,confirmed,0.85,ingredient,매운 국물 가능성,v0.3
+F0054,C085,possible,0.55,food_variant,오징어 등 해산물 포함 가능성,v0.3
+F0054,C005,possible,0.65,food_variant,국물의 나트륨 가능성,v0.3
+F0055,C032,confirmed,0.90,food_base,면 기반 음식,v0.3
+F0055,C063,confirmed,0.80,ingredient,육수 또는 국물 기반 가능성,v0.3
+F0055,C046,possible,0.45,food_variant,고명 생선 재료 포함 가능성,v0.3
+F0055,C005,possible,0.60,food_variant,육수와 양념의 나트륨 가능성,v0.3
+F0056,C032,confirmed,0.95,food_base,면 기반 음식,v0.3
+F0056,C063,confirmed,0.80,ingredient,국물 기반 음식,v0.3
+F0056,C015,confirmed,0.70,cooking_method,국물 면 요리,v0.3
+F0056,C005,possible,0.55,food_variant,국물의 나트륨 가능성,v0.3
+F0057,C032,confirmed,0.90,food_base,면 기반 음식,v0.3
+F0057,C063,confirmed,0.80,ingredient,국물 기반 음식,v0.3
+F0057,C074,possible,0.55,food_variant,채소 고명 포함 가능성,v0.3
+F0057,C005,possible,0.55,food_variant,국물의 나트륨 가능성,v0.3
+F0058,C032,confirmed,0.95,food_base,면 기반 음식,v0.3
+F0058,C069,possible,0.60,food_variant,고추장 양념 포함 가능성,v0.3
+F0058,C011,confirmed,0.80,ingredient,매운 양념 기반,v0.3
+F0058,C005,possible,0.60,food_variant,양념의 나트륨 가능성,v0.3
+F0059,C031,confirmed,0.95,food_base,현미 기반 밥,v0.3
+F0059,C003,confirmed,0.85,ingredient,통곡물 기반,v0.3
+F0059,C004,possible,0.55,nutrient,현미의 식이섬유 가능성,v0.3
+F0060,C031,confirmed,0.85,food_base,밥 기반 음식,v0.3
+F0060,C037,confirmed,0.90,food_structure,밥과 여러 재료 혼합식,v0.3
+F0060,C018,confirmed,0.75,processing,볶아 조리한 음식,v0.3
+F0060,C006,possible,0.55,food_variant,조리유에 따른 지방 가능성,v0.3
+F0061,C076,confirmed,0.95,ingredient,김치 자체 재료,v0.3
+F0061,C021,confirmed,0.95,processing,발효 식품,v0.3
+F0061,C005,possible,0.75,ingredient,절임과 양념으로 나트륨 가능성,v0.3
+F0061,C011,possible,0.65,food_variant,매운 김치 변형 가능성,v0.3
+F0062,C073,confirmed,0.95,ingredient,두부 자체 재료,v0.3
+F0062,C030,confirmed,0.95,ingredient,대두 기반 식품,v0.3
+F0062,C007,possible,0.75,nutrient,단백질 공급원 가능성,v0.3
+F0062,C017,confirmed,0.80,processing,최소가공 식품으로 분류,v0.3
+F0063,C068,confirmed,0.95,ingredient,계란 자체 재료,v0.3
+F0063,C029,confirmed,0.95,ingredient,계란 알레르겐 가능성,v0.3
+F0063,C007,possible,0.75,nutrient,단백질 공급원 가능성,v0.3
+F0064,C044,confirmed,0.95,food_base,닭고기 기반 음식,v0.3
+F0064,C007,confirmed,0.95,nutrient,고단백 식품으로 분류,v0.3
+F0064,C013,possible,0.55,food_variant,구이 조리 변형 가능성,v0.3
+F0064,C017,confirmed,0.80,processing,최소가공 식품으로 분류,v0.3
+F0065,C022,confirmed,0.95,ingredient,유제품,v0.3
+F0065,C023,confirmed,0.90,ingredient,유당 가능성,v0.3
+F0065,C007,possible,0.55,nutrient,단백질 포함 가능성,v0.3
+F0066,C059,confirmed,0.95,ingredient,치즈 자체 재료,v0.3
+F0066,C022,confirmed,0.95,ingredient,유제품,v0.3
+F0066,C023,possible,0.80,ingredient,유당 가능성,v0.3
+F0066,C006,possible,0.75,nutrient,제품과 종류에 따른 지방 가능성,v0.3
+F0067,C091,confirmed,0.95,ingredient,두유 자체 재료,v0.3
+F0067,C030,confirmed,0.95,ingredient,대두 기반 음료,v0.3
+F0067,C007,possible,0.55,nutrient,단백질 포함 가능성,v0.3
+F0067,C001,possible,0.40,food_variant,가당 제품의 당류 가능성,v0.3
+F0068,C089,confirmed,0.95,ingredient,귀리 기반 음식,v0.3
+F0068,C003,confirmed,0.90,ingredient,통곡물 기반,v0.3
+F0068,C004,confirmed,0.80,nutrient,식이섬유 가능성,v0.3
+F0068,C017,confirmed,0.80,processing,최소가공 식품으로 분류,v0.3
+F0069,C088,confirmed,0.95,ingredient,통밀 기반 빵,v0.3
+F0069,C003,confirmed,0.90,ingredient,통곡물 기반,v0.3
+F0069,C033,confirmed,0.90,food_base,빵 기반 음식,v0.3
+F0069,C024,confirmed,0.80,ingredient,밀 기반 글루텐 가능성,v0.3
+F0070,C090,confirmed,0.95,ingredient,견과류 자체 재료,v0.3
+F0070,C026,confirmed,0.95,ingredient,견과류 알레르겐 가능성,v0.3
+F0070,C006,possible,0.80,nutrient,지방 함량 가능성,v0.3
+F0070,C007,possible,0.65,nutrient,단백질 포함 가능성,v0.3
+F0071,C048,confirmed,0.95,ingredient,상추 또는 잎채소 재료,v0.3
+F0071,C074,confirmed,0.95,ingredient,잎채소 일반 범주,v0.3
+F0071,C004,confirmed,0.80,nutrient,식이섬유 가능성,v0.3
+F0071,C017,confirmed,0.90,processing,최소가공 채소,v0.3
+F0072,C082,confirmed,0.95,ingredient,깻잎 자체 재료,v0.3
+F0072,C074,confirmed,0.95,ingredient,잎채소 일반 범주,v0.3
+F0072,C004,possible,0.70,nutrient,식이섬유 가능성,v0.3
+F0072,C017,confirmed,0.90,processing,최소가공 채소,v0.3
+F0073,C070,confirmed,0.95,ingredient,마늘 자체 재료,v0.3
+F0073,C017,confirmed,0.90,processing,최소가공 채소,v0.3
+F0073,C025,possible,0.50,nutrient,개인별 FODMAP 반응 후보 가능성,v0.3
+F0074,C072,confirmed,0.95,ingredient,버섯 자체 재료,v0.3
+F0074,C035,confirmed,0.85,food_base,채소성 재료로 분류,v0.3
+F0074,C004,possible,0.65,nutrient,식이섬유 가능성,v0.3
+F0074,C017,confirmed,0.80,processing,최소가공 재료,v0.3
+F0075,C084,confirmed,0.95,ingredient,콩나물 자체 재료,v0.3
+F0075,C035,confirmed,0.80,food_base,채소성 재료로 분류,v0.3
+F0075,C004,possible,0.75,nutrient,식이섬유 가능성,v0.3
+F0075,C017,confirmed,0.80,processing,최소가공 재료,v0.3
+F0076,C093,confirmed,0.95,ingredient,에너지음료 자체 재료,v0.3
+F0076,C008,possible,0.85,food_variant,카페인 함유 제품 가능성,v0.3
+F0076,C001,possible,0.75,food_variant,당류 함유 제품 가능성,v0.3
+F0076,C019,confirmed,0.90,processing,초가공 음료로 분류,v0.3
+F0077,C009,confirmed,0.95,ingredient,알코올 음료,v0.3
+F0077,C018,confirmed,0.80,processing,가공 음료로 분류,v0.3
+F0078,C009,confirmed,0.95,ingredient,알코올 음료,v0.3
+F0078,C018,confirmed,0.80,processing,가공 음료로 분류,v0.3
+F0079,C092,confirmed,0.95,ingredient,과일주스 자체 재료,v0.3
+F0079,C036,confirmed,0.75,food_base,과일 기반 음료,v0.3
+F0079,C001,possible,0.70,food_variant,가당 주스의 당류 가능성,v0.3
+F0079,C018,confirmed,0.70,processing,가공 음료로 분류,v0.3
+F0080,C010,confirmed,0.95,ingredient,탄산 음료,v0.3
+F0080,C018,possible,0.55,processing,제품형 음료의 가공 가능성,v0.3

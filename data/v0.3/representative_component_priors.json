@@ -1,0 +1,106 @@
+{
+  "version": "v0.3",
+  "source_id": "SRC_FOODMAP_COMPONENT_PRIORS_V03",
+  "purpose": "Population-level representative component priors for ambiguous composite foods. These are not recipes, nutrition values, or person-specific observations.",
+  "foods": [
+    {
+      "food_id": "F0018",
+      "food_name_ko": "샌드위치",
+      "components": [
+        {
+          "component_id": "C033",
+          "role": "core",
+          "confidence": 0.99,
+          "note": "샌드위치는 일반적으로 빵 또는 곡류 기반이다."
+        },
+        {
+          "component_id": "C060",
+          "role": "core",
+          "confidence": 0.99,
+          "note": "빵은 샌드위치의 대표적인 구조 구성요소다."
+        },
+        {
+          "component_id": "C037",
+          "role": "core",
+          "confidence": 0.95,
+          "note": "샌드위치는 여러 속재료를 포함하는 혼합식이다."
+        },
+        {
+          "component_id": "C065",
+          "role": "typical",
+          "confidence": 0.75,
+          "note": "일반 샌드위치에는 단백질 속재료가 흔하지만 종류는 알 수 없다."
+        },
+        {
+          "component_id": "C066",
+          "role": "optional",
+          "confidence": 0.55,
+          "note": "소스 또는 스프레드는 흔하지만 필수는 아니다."
+        },
+        {
+          "component_id": "C048",
+          "role": "optional",
+          "confidence": 0.55,
+          "note": "잎채소는 흔한 속재료이지만 모든 샌드위치에 포함되지는 않는다."
+        },
+        {
+          "component_id": "C067",
+          "role": "variant",
+          "confidence": 0.35,
+          "note": "햄이나 베이컨 같은 가공육은 가능한 변형 중 하나이며 기본값이 아니다."
+        },
+        {
+          "component_id": "C068",
+          "role": "variant",
+          "confidence": 0.30,
+          "note": "계란은 가능한 변형 중 하나이며 기본값이 아니다."
+        },
+        {
+          "component_id": "C044",
+          "role": "variant",
+          "confidence": 0.30,
+          "note": "닭고기는 가능한 변형 중 하나이며 기본값이 아니다."
+        },
+        {
+          "component_id": "C059",
+          "role": "variant",
+          "confidence": 0.35,
+          "note": "치즈는 가능한 변형 중 하나이며 기본값이 아니다."
+        }
+      ],
+      "context_overrides": [
+        {
+          "keywords": ["햄", "베이컨"],
+          "component_id": "C067",
+          "role": "explicit",
+          "confidence": 0.97
+        },
+        {
+          "keywords": ["계란", "에그"],
+          "component_id": "C068",
+          "role": "explicit",
+          "confidence": 0.97
+        },
+        {
+          "keywords": ["치킨", "닭고기"],
+          "component_id": "C044",
+          "role": "explicit",
+          "confidence": 0.95
+        },
+        {
+          "keywords": ["치즈"],
+          "component_id": "C059",
+          "role": "explicit",
+          "confidence": 0.97
+        },
+        {
+          "keywords": ["채식", "비건"],
+          "component_id": "C048",
+          "role": "typical",
+          "confidence": 0.82,
+          "exclude_component_ids": ["C067", "C044"]
+        }
+      ]
+    }
+  ]
+}

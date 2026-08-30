@@ -19,7 +19,8 @@ This dataset will later be connected with wearable data such as Apple Watch slee
 
 ## Current Version
 
-v0.1 baseline parser with a v0.2 MealEvent dataset design.
+v0.1 baseline plus a reviewed v0.3 dictionary-expansion layer, with a v0.2
+MealEvent dataset design.
 
 ## Documentation
 
@@ -27,6 +28,13 @@ v0.1 baseline parser with a v0.2 MealEvent dataset design.
 - [Dataset design](docs/dataset_design.md)
 - [Annotation guideline](docs/annotation_guideline.md)
 - [Literature notes](docs/literature_notes.md)
+- [Literature evidence model](docs/evidence_model.md)
+- [General FoodMap paper summaries](docs/paper_summaries_general_foodmap.md)
+- [Research architecture and algorithm choices](docs/research_architecture.md)
+- [Korean text component language model](docs/component_language_model.md)
+- [General probability data expansion](docs/general_probability_data_expansion.md)
+- [v0.3 dictionary expansion](docs/dictionary_expansion_v0.3.md)
+- [Food component uncertainty inventory](docs/food_uncertainty_inventory.md)
 - [Daily result: 2026-08-29](reports/2026-08-29_foodmap_result.md)
 - [Association extraction pipeline](docs/association_pipeline.md)
 - [Synthetic FoodMap and personalization](docs/synthetic_foodmap.md)
@@ -40,11 +48,19 @@ data/v0.1/
 ├── food_component_annotations.csv
 ├── food_aliases.csv
 └── sentence_examples.jsonl
+
+data/v0.3/
+├── food_items_extension.csv
+├── food_aliases_extension.csv
+├── component_vocab_extension.csv
+├── component_aliases_extension.csv
+└── food_component_annotations_extension.csv
 ```
 
 ## Current Scope
 
-This version implements a rule-based baseline parser for Korean meal logs.
+This version combines a rule-based MealEvent baseline with an auditable,
+probability-based representative-component model for known foods.
 
 The parser performs:
 
@@ -67,12 +83,15 @@ bucket and consumption state.
 
 ## Current Dataset Size
 
-- Foods: 30
-- Components: 64
-- Food-component annotations: 168
-- Food aliases: 65
-- Component aliases: 19
+- Foods: 80
+- Components: 94
+- Food-component annotations: 373
+- Food aliases: 142
+- Component aliases: 52
 - Sentence examples: 53
+- General component priors: 80 foods
+- Direct human-curated component-language examples: 14
+- Weakly supervised component-language examples: 143
 
 ## Current Evaluation
 
@@ -138,8 +157,9 @@ different job:
 - DuckDB: local joins and aggregate analysis over Parquet without operating a server.
 
 The `data/v0.2/` directory contains the MealEvent annotation seed set and the
-corpus expansion plan. The detailed schema and selection criteria are in
-`docs/dataset_design.md`.
+corpus expansion plan. `data/v0.3/` is an additive, reviewed coverage layer;
+the loaders merge it with the immutable v0.1 baseline. The detailed schema and
+selection criteria are in `docs/dataset_design.md`.
 
 ## Association Pipeline
 

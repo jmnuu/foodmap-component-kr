@@ -1,20 +1,26 @@
-import csv
 import json
 from pathlib import Path
+
+try:
+    from .reference_data import load_reference_csv
+except ImportError:  # Allows direct module execution during early local use.
+    from reference_data import load_reference_csv
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA_DIR = ROOT / "data" / "v0.1"
 
 
 def load_csv(filename):
-    path = DATA_DIR / filename
-    with open(path, "r", encoding="utf-8") as f:
-        return list(csv.DictReader(f, skipinitialspace=True))
+    return load_reference_csv(filename)
 
 
 def build_food_lookup():
     foods = load_csv("food_items.csv")
     aliases = load_csv("food_aliases.csv")
+    categories_by_food_id = {
+        row["food_id"]: row["food_category"]
+        for row in foods
+    }
 
     lookup = {}
 
@@ -23,12 +29,14 @@ def build_food_lookup():
         lookup[name] = {
             "food_id": row["food_id"],
             "normalized_food_ko": row["normalized_food_ko"],
+            "food_category": row["food_category"],
         }
 
     for row in aliases:
         lookup[row["alias"]] = {
             "food_id": row["food_id"],
             "normalized_food_ko": row["normalized_food_ko"],
+            "food_category": categories_by_food_id[row["food_id"]],
         }
 
     return lookup
@@ -198,6 +206,33 @@ def should_accept_food_alias(text, alias, start, end):
 
     return True
 
+
+COMPOSITE_FOOD_CATEGORIES = {"mixed_meal", "stew", "fast_food", "noodles"}
+
+
+def _remove_embedded_ingredient_foods(found_foods, component_alias_lookup, text):
+    """Keep '치즈 샌드위치' as one meal food plus an explicit component.
+
+    A food word can also be an ingredient word. When it appears immediately
+    before a composite food with no connector, treating it as a second meal food
+    duplicates the event. The component-alias pass still preserves the explicit
+    evidence. A connector such as '랑' prevents this removal.
+    """
+    retained = []
+    for food in found_foods:
+        is_explicit_component = food["raw_text"] in component_alias_lookup
+        is_embedded = any(
+            other["food_category"] in COMPOSITE_FOOD_CATEGORIES
+            and food["end"] <= other["start"]
+            and text[food["end"]:other["start"]].strip() == ""
+            and other["start"] - food["end"] <= 2
+            for other in found_foods
+        )
+        if is_explicit_component and is_embedded:
+            continue
+        retained.append(food)
+    return retained
+
 def parse_food_log(text):
     food_lookup = build_food_lookup()
     component_lookup = build_component_lookup()
@@ -236,6 +271,7 @@ def parse_food_log(text):
                     "raw_text": alias,
                     "food_id": food_id,
                     "normalized_food": info["normalized_food_ko"],
+                    "food_category": info["food_category"],
                     "start": span[0],
                     "end": span[1],
                     "components": component_lookup.get(food_id, []),
@@ -244,6 +280,14 @@ def parse_food_log(text):
                 occupied_spans.append(span)
 
             start = index + len(alias)
+
+    found_foods = _remove_embedded_ingredient_foods(
+        found_foods,
+        component_alias_lookup,
+        text,
+    )
+    for food in found_foods:
+        food.pop("food_category", None)
 
     # component aliases는 음식 span과 겹쳐도 일부 허용해야 함
     # 예: 토마토파스타에서 토마토 + 파스타 둘 다 잡기
