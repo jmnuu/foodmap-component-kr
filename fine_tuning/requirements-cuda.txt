@@ -1,0 +1,7 @@
+# Observed Linux/WSL Python3.12 experiment environment, not a universal lockfile.
+--extra-index-url https://download.pytorch.org/whl/cu118
+torch==2.7.1+cu118
+transformers==5.22.0
+peft==0.21.2
+accelerate==1.15.0
+bitsandbytes==0.50.2

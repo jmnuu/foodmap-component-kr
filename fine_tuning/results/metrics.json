@@ -1,0 +1,484 @@
+{
+  "experiment_id": "lora_allocation_2026-11-14_01",
+  "status": "completed_and_verified",
+  "protocol_sha256": "5a21f5c9170fb8b3d0f433228cd316b07af13d9512aef6ec60ca3734349e3d81",
+  "groups": [
+    {
+      "condition": "qv_r8",
+      "trainable_parameters": 1146880,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "train_peak_gpu_allocated_mib": [
+        3278.71142578125,
+        3278.94970703125,
+        3278.71142578125
+      ],
+      "adapter_bytes": [
+        4602248,
+        4602248,
+        4602248
+      ],
+      "known": {
+        "exact_counts": [
+          23,
+          16,
+          16
+        ],
+        "mean_exact_pct": 49.549549549549546,
+        "mean_joint_f1": 0.5024624624624625,
+        "invalid_counts": [
+          5,
+          11,
+          10
+        ],
+        "mean_strict_exact": 17,
+        "false_empty_counts": [
+          0,
+          0,
+          0
+        ],
+        "inference_peak_gpu_allocated_mib": [
+          959.10009765625,
+          959.10009765625,
+          959.10009765625
+        ]
+      },
+      "confirm": {
+        "exact_counts": [
+          29,
+          24,
+          26
+        ],
+        "mean_exact_pct": 41.7989417989418,
+        "mean_joint_f1": 0.4775257625187717,
+        "invalid_counts": [
+          7,
+          19,
+          10
+        ],
+        "mean_strict_exact": 13.333333333333334,
+        "false_empty_counts": [
+          0,
+          0,
+          0
+        ],
+        "inference_peak_gpu_allocated_mib": [
+          959.10009765625,
+          959.10009765625,
+          959.10009765625
+        ]
+      }
+    },
+    {
+      "condition": "qkvo_r4",
+      "trainable_parameters": 1146880,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "train_peak_gpu_allocated_mib": [
+        3278.71142578125,
+        3278.94970703125,
+        3278.71142578125
+      ],
+      "adapter_bytes": [
+        4616936,
+        4616936,
+        4616936
+      ],
+      "known": {
+        "exact_counts": [
+          22,
+          15,
+          17
+        ],
+        "mean_exact_pct": 48.648648648648646,
+        "mean_joint_f1": 0.4906153915109139,
+        "invalid_counts": [
+          3,
+          8,
+          7
+        ],
+        "mean_strict_exact": 17,
+        "false_empty_counts": [
+          0,
+          0,
+          6
+        ],
+        "inference_peak_gpu_allocated_mib": [
+          959.10009765625,
+          959.10009765625,
+          959.10009765625
+        ]
+      },
+      "confirm": {
+        "exact_counts": [
+          21,
+          18,
+          18
+        ],
+        "mean_exact_pct": 30.15873015873016,
+        "mean_joint_f1": 0.33462321465048117,
+        "invalid_counts": [
+          12,
+          23,
+          19
+        ],
+        "mean_strict_exact": 10.333333333333334,
+        "false_empty_counts": [
+          0,
+          0,
+          0
+        ],
+        "inference_peak_gpu_allocated_mib": [
+          959.10009765625,
+          959.10009765625,
+          959.10009765625
+        ]
+      }
+    }
+  ],
+  "paired": [
+    {
+      "split": "known",
+      "seed": 42,
+      "exact_change": -1,
+      "improved_ids": [
+        "CDV013",
+        "QDV002"
+      ],
+      "regressed_ids": [
+        "CDV003",
+        "CDV009",
+        "V310"
+      ],
+      "transitions": {
+        "correct->correct": 20,
+        "invalid->correct": 1,
+        "valid_wrong->valid_wrong": 7,
+        "correct->invalid": 2,
+        "correct->valid_wrong": 1,
+        "invalid->valid_wrong": 4,
+        "valid_wrong->correct": 1,
+        "valid_wrong->invalid": 1
+      }
+    },
+    {
+      "split": "known",
+      "seed": 43,
+      "exact_change": -1,
+      "improved_ids": [
+        "QDV002",
+        "V313"
+      ],
+      "regressed_ids": [
+        "CDV002",
+        "V305",
+        "V310"
+      ],
+      "transitions": {
+        "invalid->invalid": 6,
+        "invalid->correct": 2,
+        "correct->correct": 13,
+        "valid_wrong->valid_wrong": 9,
+        "invalid->valid_wrong": 3,
+        "correct->valid_wrong": 2,
+        "correct->invalid": 1,
+        "valid_wrong->invalid": 1
+      }
+    },
+    {
+      "split": "known",
+      "seed": 44,
+      "exact_change": 1,
+      "improved_ids": [
+        "CDV010",
+        "CDV013",
+        "QDV005",
+        "V313"
+      ],
+      "regressed_ids": [
+        "QDV002",
+        "V303",
+        "V307"
+      ],
+      "transitions": {
+        "correct->correct": 13,
+        "correct->valid_wrong": 1,
+        "valid_wrong->valid_wrong": 7,
+        "invalid->correct": 3,
+        "invalid->invalid": 2,
+        "correct->invalid": 2,
+        "invalid->valid_wrong": 5,
+        "valid_wrong->correct": 1,
+        "valid_wrong->invalid": 3
+      }
+    },
+    {
+      "split": "confirm",
+      "seed": 42,
+      "exact_change": -8,
+      "improved_ids": [
+        "EXP-d13-002",
+        "EXP-d16-004-N"
+      ],
+      "regressed_ids": [
+        "EXP-d03-002",
+        "EXP-d07-001",
+        "EXP-d07-002",
+        "EXP-d07-003",
+        "EXP-d07-004-N",
+        "EXP-d11-002",
+        "EXP-d11-003",
+        "EXP-d12-004-N",
+        "EXP-d14-003",
+        "EXP-d16-003"
+      ],
+      "transitions": {
+        "valid_wrong->valid_wrong": 21,
+        "correct->correct": 19,
+        "valid_wrong->invalid": 4,
+        "correct->valid_wrong": 5,
+        "correct->invalid": 5,
+        "invalid->invalid": 3,
+        "invalid->valid_wrong": 4,
+        "valid_wrong->correct": 2
+      }
+    },
+    {
+      "split": "confirm",
+      "seed": 43,
+      "exact_change": -6,
+      "improved_ids": [
+        "EXP-d06-003",
+        "EXP-d06-004-N",
+        "EXP-d09-002",
+        "EXP-d16-004-N"
+      ],
+      "regressed_ids": [
+        "EXP-d03-004-N",
+        "EXP-d07-002",
+        "EXP-d07-003",
+        "EXP-d08-002",
+        "EXP-d11-003",
+        "EXP-d11-004-N",
+        "EXP-d12-001",
+        "EXP-d12-002",
+        "EXP-d12-003",
+        "EXP-d12-004-N"
+      ],
+      "transitions": {
+        "invalid->valid_wrong": 8,
+        "valid_wrong->valid_wrong": 13,
+        "correct->correct": 14,
+        "valid_wrong->invalid": 3,
+        "invalid->invalid": 11,
+        "correct->invalid": 9,
+        "valid_wrong->correct": 4,
+        "correct->valid_wrong": 1
+      }
+    },
+    {
+      "split": "confirm",
+      "seed": 44,
+      "exact_change": -8,
+      "improved_ids": [
+        "EXP-d09-002",
+        "EXP-d09-003",
+        "EXP-d12-002",
+        "EXP-d12-003",
+        "EXP-d13-001",
+        "EXP-d13-002",
+        "EXP-d13-003",
+        "EXP-d16-004-N"
+      ],
+      "regressed_ids": [
+        "EXP-d02-001",
+        "EXP-d02-002",
+        "EXP-d02-003",
+        "EXP-d03-001",
+        "EXP-d05-002",
+        "EXP-d05-003",
+        "EXP-d06-004-N",
+        "EXP-d07-001",
+        "EXP-d08-001",
+        "EXP-d08-003",
+        "EXP-d08-004-N",
+        "EXP-d11-002",
+        "EXP-d11-003",
+        "EXP-d14-001",
+        "EXP-d14-002",
+        "EXP-d16-003"
+      ],
+      "transitions": {
+        "valid_wrong->valid_wrong": 13,
+        "correct->valid_wrong": 9,
+        "correct->correct": 10,
+        "valid_wrong->invalid": 8,
+        "correct->invalid": 7,
+        "invalid->valid_wrong": 4,
+        "valid_wrong->correct": 6,
+        "invalid->invalid": 4,
+        "invalid->correct": 2
+      }
+    }
+  ],
+  "preregistered_hypothesis_supported": false,
+  "confirmation_seed_wins": 0,
+  "development_raw_predictions_replayed": 600,
+  "confirmation63_now_observed": true,
+  "limitations": [
+    "Three seeds; synthetic small development data is not real-world ASR performance.",
+    "Placement and per-matrix rank jointly change: this tests allocation at equal parameter budget, not a pure placement-only effect.",
+    "Matched alpha/r and LR do not imply equal update norms or effective optimization geometry.",
+    "Equal parameters do not guarantee equal training activations, physical GPU residency, or inference speed.",
+    "The old adapter used for the fit diagnostic came from a different WSL patch; contemporary baselines are retrained for the controlled comparison.",
+    "Reserved63 becomes observed after this experiment and cannot subsequently be advertised as untouched.",
+    "The stratified training-generation probe is descriptive and is not representative of natural prevalence."
+  ],
+  "training_fit_diagnostic": {
+    "training_fit": {
+      "scope": "in_sample_training_fit_only",
+      "rows": 46,
+      "exact_event_match": 40,
+      "invalid_outputs": 1,
+      "false_empty": 0,
+      "error_ids": [
+        "QTR014",
+        "EXP-t20-002",
+        "QTR013",
+        "QTR010",
+        "EXP-t45-004-N",
+        "QTR004"
+      ],
+      "strict_annotation_audit": {
+        "version": "strict-annotation-v1",
+        "matched_rows": 39,
+        "rows": 46,
+        "error_ids": [
+          "QTR014",
+          "EXP-t20-002",
+          "EXP-t25-003",
+          "QTR013",
+          "QTR010",
+          "EXP-t45-004-N",
+          "QTR004"
+        ],
+        "definition": "Full target equality including evidence, subject basis, components and list order; not semantic equivalence."
+      },
+      "not_generalization": true
+    },
+    "teacher_forced": {
+      "train": {
+        "rows": 224,
+        "supervised_tokens": 32101,
+        "token_mean_nll": 0.006498696961305848,
+        "example_mean_nll": 0.006492723486795921,
+        "teacher_forced_token_accuracy": 0.9987227812217688
+      },
+      "development": {
+        "rows": 37,
+        "supervised_tokens": 4985,
+        "token_mean_nll": 0.022861853576710854,
+        "example_mean_nll": 0.04180202132253297,
+        "teacher_forced_token_accuracy": 0.9947843530591776
+      }
+    }
+  },
+  "memory_by_arm": [
+    {
+      "name": "qv_r8_s42",
+      "training": {
+        "peak_gpu_allocated_mib": 3278.71142578125,
+        "peak_gpu_reserved_mib": 12634.0,
+        "peak_cpu_rss_mib": 2242.4765625
+      },
+      "confirmation_inference": {
+        "peak_gpu_allocated_mib": 959.10009765625,
+        "peak_gpu_reserved_mib": 1058.0,
+        "peak_cpu_rss_mib": 2227.125,
+        "cpu_rss_source_field": "attempt_peak_cpu_rss_mib"
+      },
+      "adapter_bytes": 4602248
+    },
+    {
+      "name": "qkvo_r4_s42",
+      "training": {
+        "peak_gpu_allocated_mib": 3278.71142578125,
+        "peak_gpu_reserved_mib": 12632.0,
+        "peak_cpu_rss_mib": 2243.09765625
+      },
+      "confirmation_inference": {
+        "peak_gpu_allocated_mib": 959.10009765625,
+        "peak_gpu_reserved_mib": 1058.0,
+        "peak_cpu_rss_mib": 2226.77734375,
+        "cpu_rss_source_field": "attempt_peak_cpu_rss_mib"
+      },
+      "adapter_bytes": 4616936
+    },
+    {
+      "name": "qv_r8_s43",
+      "training": {
+        "peak_gpu_allocated_mib": 3278.94970703125,
+        "peak_gpu_reserved_mib": 13474.0,
+        "peak_cpu_rss_mib": 2242.65625
+      },
+      "confirmation_inference": {
+        "peak_gpu_allocated_mib": 959.10009765625,
+        "peak_gpu_reserved_mib": 1058.0,
+        "peak_cpu_rss_mib": 2226.62109375,
+        "cpu_rss_source_field": "attempt_peak_cpu_rss_mib"
+      },
+      "adapter_bytes": 4602248
+    },
+    {
+      "name": "qkvo_r4_s43",
+      "training": {
+        "peak_gpu_allocated_mib": 3278.94970703125,
+        "peak_gpu_reserved_mib": 13472.0,
+        "peak_cpu_rss_mib": 2243.05078125
+      },
+      "confirmation_inference": {
+        "peak_gpu_allocated_mib": 959.10009765625,
+        "peak_gpu_reserved_mib": 1058.0,
+        "peak_cpu_rss_mib": 2226.97265625,
+        "cpu_rss_source_field": "attempt_peak_cpu_rss_mib"
+      },
+      "adapter_bytes": 4616936
+    },
+    {
+      "name": "qv_r8_s44",
+      "training": {
+        "peak_gpu_allocated_mib": 3278.71142578125,
+        "peak_gpu_reserved_mib": 9688.0,
+        "peak_cpu_rss_mib": 2243.1484375
+      },
+      "confirmation_inference": {
+        "peak_gpu_allocated_mib": 959.10009765625,
+        "peak_gpu_reserved_mib": 1058.0,
+        "peak_cpu_rss_mib": 2227.09765625,
+        "cpu_rss_source_field": "attempt_peak_cpu_rss_mib"
+      },
+      "adapter_bytes": 4602248
+    },
+    {
+      "name": "qkvo_r4_s44",
+      "training": {
+        "peak_gpu_allocated_mib": 3278.71142578125,
+        "peak_gpu_reserved_mib": 9688.0,
+        "peak_cpu_rss_mib": 2242.6953125
+      },
+      "confirmation_inference": {
+        "peak_gpu_allocated_mib": 959.10009765625,
+        "peak_gpu_reserved_mib": 1058.0,
+        "peak_cpu_rss_mib": 2226.77734375,
+        "cpu_rss_source_field": "attempt_peak_cpu_rss_mib"
+      },
+      "adapter_bytes": 4616936
+    }
+  ]
+}

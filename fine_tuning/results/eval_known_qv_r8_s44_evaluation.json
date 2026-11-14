@@ -1,0 +1,163 @@
+{
+  "contract_version": "meal-context-v3",
+  "examples": 37,
+  "exact_event_match": 16,
+  "invalid_outputs": 10,
+  "error_ids": [
+    "QDV004",
+    "QDV005",
+    "QDV008",
+    "V304",
+    "V310",
+    "V312",
+    "V313",
+    "CDV002",
+    "CDV003",
+    "CDV004",
+    "CDV005",
+    "CDV006",
+    "CDV007",
+    "CDV008",
+    "CDV010",
+    "CDV011",
+    "CDV012",
+    "CDV013",
+    "CDV014",
+    "CDV015",
+    "CDV016"
+  ],
+  "metrics": {
+    "food": {
+      "tp": 25,
+      "fp": 13,
+      "fn": 12,
+      "precision": 0.6578947368421053,
+      "recall": 0.6756756756756757,
+      "micro_f1": 0.6666666666666666
+    },
+    "date_reference": {
+      "tp": 25,
+      "fp": 13,
+      "fn": 12,
+      "precision": 0.6578947368421053,
+      "recall": 0.6756756756756757,
+      "micro_f1": 0.6666666666666666
+    },
+    "normalized_date": {
+      "tp": 25,
+      "fp": 13,
+      "fn": 12,
+      "precision": 0.6578947368421053,
+      "recall": 0.6756756756756757,
+      "micro_f1": 0.6666666666666666
+    },
+    "clock": {
+      "tp": 20,
+      "fp": 18,
+      "fn": 17,
+      "precision": 0.5263157894736842,
+      "recall": 0.5405405405405406,
+      "micro_f1": 0.5333333333333333
+    },
+    "subject": {
+      "tp": 24,
+      "fp": 14,
+      "fn": 13,
+      "precision": 0.631578947368421,
+      "recall": 0.6486486486486487,
+      "micro_f1": 0.64
+    },
+    "subject_basis": {
+      "tp": 22,
+      "fp": 16,
+      "fn": 15,
+      "precision": 0.5789473684210527,
+      "recall": 0.5945945945945946,
+      "micro_f1": 0.5866666666666667
+    },
+    "joint": {
+      "tp": 17,
+      "fp": 21,
+      "fn": 20,
+      "precision": 0.4473684210526316,
+      "recall": 0.4594594594594595,
+      "micro_f1": 0.4533333333333333
+    },
+    "self_consumed": {
+      "tp": 14,
+      "fp": 11,
+      "fn": 3,
+      "precision": 0.56,
+      "recall": 0.8235294117647058,
+      "micro_f1": 0.6666666666666666
+    },
+    "evidence_links": {
+      "tp": 66,
+      "fp": 19,
+      "fn": 33,
+      "precision": 0.7764705882352941,
+      "recall": 0.6666666666666666,
+      "micro_f1": 0.717391304347826
+    }
+  },
+  "subject_basis_slices": {
+    "explicit": {
+      "rows": 12,
+      "exact_event_match": 3
+    },
+    "discourse_context": {
+      "rows": 3,
+      "exact_event_match": 2
+    },
+    "diary_default": {
+      "rows": 17,
+      "exact_event_match": 11
+    },
+    "unresolved": {
+      "rows": 4,
+      "exact_event_match": 0
+    }
+  },
+  "diagnostic_only": false,
+  "gold_sha256": "b7e44c3400641acfb01a82fd59e32bba7630c619234d8ed93cacd8cf83530f37",
+  "predictions_sha256": "43db22cef30c46c4fa6bde9a743b332209b9c91960f5481cf8bceae897b9bd9c",
+  "prediction_provenance_verified": false,
+  "limitations": [
+    "evaluation does not invoke a model or establish prediction provenance",
+    "quote existence does not prove semantic truth; review declarations are not authenticated",
+    "normalized-date metric includes unresolved values; inspect date_reference and joint too",
+    "subject basis slices overlap on multi-event rows",
+    "no ingredient, wearable response, ASR intent, GPU memory or UTC-window accuracy evaluation"
+  ],
+  "strict_annotation_audit": {
+    "version": "strict-annotation-v1",
+    "matched_rows": 14,
+    "rows": 37,
+    "error_ids": [
+      "QDV002",
+      "QDV004",
+      "QDV005",
+      "QDV008",
+      "V304",
+      "V310",
+      "V312",
+      "V313",
+      "CDV001",
+      "CDV002",
+      "CDV003",
+      "CDV004",
+      "CDV005",
+      "CDV006",
+      "CDV007",
+      "CDV008",
+      "CDV010",
+      "CDV011",
+      "CDV012",
+      "CDV013",
+      "CDV014",
+      "CDV015",
+      "CDV016"
+    ],
+    "definition": "Full target equality including evidence, subject basis, components and list order; not semantic equivalence."
+  }
+}

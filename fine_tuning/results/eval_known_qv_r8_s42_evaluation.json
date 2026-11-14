@@ -1,0 +1,148 @@
+{
+  "contract_version": "meal-context-v3",
+  "examples": 37,
+  "exact_event_match": 23,
+  "invalid_outputs": 5,
+  "error_ids": [
+    "QDV002",
+    "QDV004",
+    "V304",
+    "V307",
+    "CDV002",
+    "CDV005",
+    "CDV006",
+    "CDV007",
+    "CDV008",
+    "CDV011",
+    "CDV013",
+    "CDV014",
+    "CDV015",
+    "CDV016"
+  ],
+  "metrics": {
+    "food": {
+      "tp": 29,
+      "fp": 8,
+      "fn": 8,
+      "precision": 0.7837837837837838,
+      "recall": 0.7837837837837838,
+      "micro_f1": 0.7837837837837838
+    },
+    "date_reference": {
+      "tp": 28,
+      "fp": 9,
+      "fn": 9,
+      "precision": 0.7567567567567568,
+      "recall": 0.7567567567567568,
+      "micro_f1": 0.7567567567567568
+    },
+    "normalized_date": {
+      "tp": 28,
+      "fp": 9,
+      "fn": 9,
+      "precision": 0.7567567567567568,
+      "recall": 0.7567567567567568,
+      "micro_f1": 0.7567567567567568
+    },
+    "clock": {
+      "tp": 26,
+      "fp": 11,
+      "fn": 11,
+      "precision": 0.7027027027027027,
+      "recall": 0.7027027027027027,
+      "micro_f1": 0.7027027027027027
+    },
+    "subject": {
+      "tp": 28,
+      "fp": 9,
+      "fn": 9,
+      "precision": 0.7567567567567568,
+      "recall": 0.7567567567567568,
+      "micro_f1": 0.7567567567567568
+    },
+    "subject_basis": {
+      "tp": 27,
+      "fp": 10,
+      "fn": 10,
+      "precision": 0.7297297297297297,
+      "recall": 0.7297297297297297,
+      "micro_f1": 0.7297297297297297
+    },
+    "joint": {
+      "tp": 23,
+      "fp": 14,
+      "fn": 14,
+      "precision": 0.6216216216216216,
+      "recall": 0.6216216216216216,
+      "micro_f1": 0.6216216216216216
+    },
+    "self_consumed": {
+      "tp": 15,
+      "fp": 6,
+      "fn": 2,
+      "precision": 0.7142857142857143,
+      "recall": 0.8823529411764706,
+      "micro_f1": 0.7894736842105263
+    },
+    "evidence_links": {
+      "tp": 75,
+      "fp": 15,
+      "fn": 24,
+      "precision": 0.8333333333333334,
+      "recall": 0.7575757575757576,
+      "micro_f1": 0.7936507936507936
+    }
+  },
+  "subject_basis_slices": {
+    "explicit": {
+      "rows": 12,
+      "exact_event_match": 5
+    },
+    "discourse_context": {
+      "rows": 3,
+      "exact_event_match": 2
+    },
+    "diary_default": {
+      "rows": 17,
+      "exact_event_match": 12
+    },
+    "unresolved": {
+      "rows": 4,
+      "exact_event_match": 4
+    }
+  },
+  "diagnostic_only": false,
+  "gold_sha256": "b7e44c3400641acfb01a82fd59e32bba7630c619234d8ed93cacd8cf83530f37",
+  "predictions_sha256": "22b4e3c47aa83857e53e74cef0ebad2c472a3a3be598c6ff9e1ad5b3d616c41d",
+  "prediction_provenance_verified": false,
+  "limitations": [
+    "evaluation does not invoke a model or establish prediction provenance",
+    "quote existence does not prove semantic truth; review declarations are not authenticated",
+    "normalized-date metric includes unresolved values; inspect date_reference and joint too",
+    "subject basis slices overlap on multi-event rows",
+    "no ingredient, wearable response, ASR intent, GPU memory or UTC-window accuracy evaluation"
+  ],
+  "strict_annotation_audit": {
+    "version": "strict-annotation-v1",
+    "matched_rows": 22,
+    "rows": 37,
+    "error_ids": [
+      "QDV002",
+      "QDV004",
+      "V304",
+      "V307",
+      "CDV002",
+      "CDV003",
+      "CDV005",
+      "CDV006",
+      "CDV007",
+      "CDV008",
+      "CDV011",
+      "CDV013",
+      "CDV014",
+      "CDV015",
+      "CDV016"
+    ],
+    "definition": "Full target equality including evidence, subject basis, components and list order; not semantic equivalence."
+  }
+}
